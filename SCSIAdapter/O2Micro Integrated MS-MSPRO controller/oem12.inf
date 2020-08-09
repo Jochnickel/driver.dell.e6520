@@ -1,0 +1,140 @@
+; O2MDRW7x64.INF, O2Micro Integrated MS/xD Controller INF file
+; Copyright (c) 1997-2010 O2Micro Corp.
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = SCSIAdapter
+ClassGuid   = {4D36E97B-E325-11CE-BFC1-08002BE10318}
+Provider    = %O2Micro%
+DriverVer   = 01/03/2011,2.2.1.7011
+Catalogfile = O2MDRw7x64.cat
+
+[SourceDisksNames]
+1 = %O2MDR.DriverDisk%
+
+[SourceDisksFiles]
+O2MDRw7x64.sys = 1
+o2flash.exe = 1
+O2Icon_2.dll=1  ; 310-XD, 309-MS/MSPro
+
+[DestinationDirs]
+DefaultDestDir = 12
+CopyO2Flash = 12
+O2MDRW7 = 12
+O2ICON = 11
+
+[O2MDRW7]
+O2MDRw7x64.sys
+
+[O2ICON]
+O2Icon_2.dll
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%O2Micro% = O2MDRRDR,NTamd64
+
+[O2MDRRDR.NTamd64]
+%O2MDR.DeviceDesc% = DriverInstall, PCI\VEN_1217&DEV_8330	;Default for OZ600Raijin
+%O2MDR.DeviceDesc1% = DriverInstall_MS, PCI\VEN_1217&DEV_8331	;Default for OZ600RJ0/OZ900RJ0/OZ600RJS
+
+;==============================================================================
+; Generic Entries
+;==============================================================================
+
+[DriverInstall.NT]
+;CopyFiles = @O2MDRw7x64.sys
+CopyFiles = O2MDRW7,O2ICON
+CopyFiles = CopyO2Flash
+
+[CopyO2Flash]
+o2flash.exe
+
+[DriverInstall.NT.Services]
+AddService = O2MDRRDR, 0x00000002 , DriverService, EventLogService
+AddService = O2FLASH, 0x00000800 , Flash_Service_Inst
+
+[DriverService]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  
+LoadOrderGroup = SCSI Miniport
+ServiceBinary  = %12%\O2MDRw7x64.sys
+AddReg         = DriverService.AddReg
+;;;;;;;;;;;;;;;;;;;;;;
+AddReg         = icon_label	
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+[EventLogService]
+AddReg = EventLogService_AddReg
+
+[EventLogService_AddReg]
+HKR,,EventMessageFile, 0x00020000, "%%SystemRoot%%\System32\drivers\O2MDRw7x64.sys"
+HKR,,TypesSupported,   0x00010001, 7
+
+[DriverService.AddReg]
+HKR, "Parameters\PnpInterface", "5", 0x00010001, 0x00000001
+HKR, "Parameters", "BusType", 0x00010001, 0x00000010
+
+;==============================================================================
+; OEM Entries
+;==============================================================================
+[DriverInstall_MS.NT]
+;CopyFiles = @O2MDRw7x64.sys
+CopyFiles = O2MDRW7,O2ICON
+CopyFiles = CopyO2Flash
+
+[CopyO2Flash]
+o2flash.exe	
+
+[DriverInstall_MS.NT.Services]
+AddService = O2MDRRDR, 0x00000002 , DriverService, EventLogService
+AddService = O2FLASH, 0x00000800 , Flash_Service_Inst
+
+[Flash_Service_Inst]
+DisplayName    = O2FLASH
+ServiceType    = 0x0010             ; SERVICE_KERNEL_DRIVER
+StartType      = 2                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  
+ServiceBinary  = %12%\o2flash.exe
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;SCSI\DiskO2Micro_MS______________0001
+[icon_label]
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_MS______________0001","Icons",0x00010000,"%SystemRoot%\system32\O2Icon_2.dll,-309"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_MS______________0001","Label",,"MemoryStick Disk"
+;HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_MS______________0001","NoSoftEject",0x00010001,0x00000001
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_MS______________0001","DeviceGroup",,"MemoryStick"
+
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_MSPro___________0001","Icons",0x00010000,"%SystemRoot%\system32\O2Icon_2.dll,-309"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_MSPro___________0001","Label",,"MemoryStick Pro Disk"
+;HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_MSPro___________0001","NoSoftEject",0x00010001,0x00000001
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_MSPro___________0001","DeviceGroup",,"MemoryStick"
+
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_xDPicture_______0001","Icons",0x00010000,"%SystemRoot%\system32\O2Icon_2.dll,-310"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_xDPicture_______0001","Label",,"xD Picture Disk"
+;HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_xDPicture_______0001","NoSoftEject",0x00010001,0x00000001
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\PerHwIdStorage\SCSI#DiskO2Micro_xDPicture_______0001","DeviceGroup",,"SMStorage"
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;==============================================================================
+; Strings
+;==============================================================================
+
+[Strings]
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_BINARY    = 0x00000001
+REG_DWORD     = 0x00010001
+SERVICEROOT   = "System\CurrentControlSet\Services"
+
+O2Micro          = "O2Micro"
+O2MDR.DeviceDesc = "O2Micro Integrated MS/MSPRO/xD Controller"
+O2MDR.DeviceDesc1 ="O2Micro Integrated MS/MSPRO controller"
+O2MDR.DriverDisk = "O2Micro Integrated MS/MSPRO/xD Controller Driver Disk"
+

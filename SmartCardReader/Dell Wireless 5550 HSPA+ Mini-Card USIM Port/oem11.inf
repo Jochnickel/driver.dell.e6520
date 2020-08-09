@@ -1,0 +1,107 @@
+; Copyright (c) 2009, Ericsson. All rights reserved.
+[Version]
+Signature="$WINDOWS NT$"
+Class=SmartCardReader
+ClassGuid={50DD5230-BA8A-11D1-BF5D-0000F805F530}
+Provider=%InfProvider%
+DriverVer=04/20/2012,7.1.0.1
+CatalogFile=d554scard.cat
+
+; ================= Files section =====================
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames.x86]
+1 = %DiskDesc%,,,\i386
+
+[SourceDisksNames.amd64]
+1 = %DiskDesc%,,,\amd64
+
+[SourceDisksFiles]
+d554scard.sys = 1
+WdfCoInstaller01007.dll = 1
+
+; ================= Class section =====================
+
+; ================= Device install section =====================
+[Manufacturer]
+%ManufacturerName%=SmartCardModel, NTx86, NTamd64
+
+[SmartCardModel.NTx86]
+
+"Dell Wireless 5540 HSPA Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_8183&Mi_08
+"Dell Wireless 5540 HSPA Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_8184&Mi_08
+"Dell Wireless 5541 HSPA Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_818b&Mi_08
+"Dell Wireless 5542 HSPA Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_818c&Mi_08
+"Dell Wireless 5550 HSPA+ Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_818d&Mi_08
+"Dell Wireless 5560 HSPA+ Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_818e&Mi_08
+
+[SmartCardModel.NTamd64]
+
+"Dell Wireless 5540 HSPA Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_8183&Mi_08
+"Dell Wireless 5540 HSPA Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_8184&Mi_08
+"Dell Wireless 5541 HSPA Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_818b&Mi_08
+"Dell Wireless 5542 HSPA Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_818c&Mi_08
+"Dell Wireless 5550 HSPA+ Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_818d&Mi_08
+"Dell Wireless 5560 HSPA+ Mini-Card USIM Port" = SmartCardDevice, DELL\SMARTCARD2\VID_413c&PID_818e&Mi_08
+
+[SmartCardDevice]
+CopyFiles=@d554scard.sys
+AddReg=BlockMinidriver32
+AddReg=BlockMinidriver64
+
+[BlockMinidriver32]
+HKLM, "SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\Mobile Broadband SIM Card","ATR",0x00000001,3B,19,94,33,03,01,31,45,41,06,02,B6
+HKLM, "SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\Mobile Broadband SIM Card","ATRMask",0x00000001,ff,ff,ff,ff,ff,ff,ff,ff,ff,ff,ff,ff
+HKLM, "SOFTWARE\Microsoft\Cryptography\Calais\SmartCards\Mobile Broadband SIM Card","Crypto Provider",0x00000000,"Ericsson Dummy Smart Card Crypto Provider"
+
+[BlockMinidriver64]
+HKLM, "SOFTWARE\Wow6432Node\Microsoft\Cryptography\Calais\SmartCards\Mobile Broadband SIM Card","ATR",0x00000001,3B,19,94,33,03,01,31,45,41,06,02,B6
+HKLM, "SOFTWARE\Wow6432Node\Microsoft\Cryptography\Calais\SmartCards\Mobile Broadband SIM Card","ATRMask",0x00000001,ff,ff,ff,ff,ff,ff,ff,ff,ff,ff,ff,ff
+HKLM, "SOFTWARE\Wow6432Node\Microsoft\Cryptography\Calais\SmartCards\Mobile Broadband SIM Card","Crypto Provider",0x00000000,"Ericsson Dummy Smart Card Crypto Provider"
+
+; ================= Service install section =====================
+
+[SmartCardDevice.Services]
+AddService = %OriginalServiceName%, %SPSVCINST_ASSOCSERVICE%, SmartCardDevice.AddService
+
+[SmartCardDevice.AddService]
+DisplayName    = %ServiceDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\d554scard.sys
+LoadOrderGroup = Base
+
+; ================= WDF co-Installer section =====================
+
+[SmartCardDevice.CoInstallers]
+AddReg    = SmartCardDevice.CoInstallers.AddReg
+CopyFiles = SmartCardDevice.CoInstallers.CopyFiles
+
+[DestinationDirs]
+SmartCardDevice.CoInstallers.CopyFiles = 11 
+
+[SmartCardDevice.CoInstallers.CopyFiles]
+WdfCoInstaller01007.dll
+
+[SmartCardDevice.CoInstallers.AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01007.dll,WdfCoInstaller"
+
+[SmartCardDevice.Wdf]
+KmdfService  = %OriginalServiceName%, SmartCardDevice.Wdf.Install
+
+[SmartCardDevice.Wdf.Install]
+KmdfLibraryVersion = 1.7
+
+; ================= Vendor specific string section =====================
+
+[Strings]
+InfProvider			= "Dell"
+ManufacturerName	        = "Dell"
+DiskDesc			= "Dell Wireless  HSPA Mini-Card USIM Port Installation Disk"
+ServiceName			= "Dell Wireless  HSPA Mini-Card USIM Port"
+ServiceDesc			= "Dell Wireless  HSPA Mini-Card USIM Port"
+OriginalServiceName		= "d554scard"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+

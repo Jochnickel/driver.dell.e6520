@@ -1,0 +1,161 @@
+;/*++
+;
+;Copyright (c) Broadcom Corporation.  All rights reserved.
+;
+;Module Name:
+;
+;    CVUSBDRV.INF
+;
+;Abstract:
+;    Installation inf for Dell ControlVault USB Driver
+;
+;--*/
+
+[Version]
+DriverPackageType=PlugAndPlay
+Signature="$WINDOWS NT$"
+Class=CVAULT
+ClassGuid={09E9A11D-CCB2-45ae-9BE8-65C263E60490}
+Provider=%ProviderName%
+DriverVer=10/04/2012,6.1.7600.16385
+CatalogFile=CVAULT.cat
+
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=CvaultClassReg     
+
+[CvaultClassReg]
+HKR,,ClassDesc,,%CVaultClassName% 
+HKR,,Icon,,-5
+
+
+; ================= Device section =====================
+
+[Manufacturer]
+%MfgName%=Dell,NTAMD64
+
+; For Win2K
+[Dell]
+%USB\VID_0A5C&PID_0000.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_0000
+%USB\VID_0A5C&PID_0000.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_0000&REV_0101
+%USB\VID_0A5C&PID_5800.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5800&REV_0101&MI_00
+%USB\VID_0A5C&PID_5800.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5800&REV_0102
+%USB\VID_0A5C&PID_5800.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5800&REV_0102&MI_00
+%USB\VID_0A5C&PID_5801.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5801&REV_0101&MI_00
+%USB\VID_0A5C&PID_5801.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5801&REV_0102
+%USB\VID_0A5C&PID_5801.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5801&REV_0102&MI_00
+%USB\VID_0A5C&PID_5802.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5802&REV_0101&MI_00
+%USB\VID_0A5C&PID_5802.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5802&REV_0102
+%USB\VID_0A5C&PID_5802.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5802&REV_0102&MI_00
+%USB\VID_0A5C&PID_5803.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5803&REV_0101&MI_01
+%USB\VID_0A5C&PID_5804.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5804&REV_0101&MI_00
+%USB\VID_0A5C&PID_5804.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5804&REV_0102
+%USB\VID_0A5C&PID_5804.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5804&REV_0102&MI_00
+%USB\VID_0A5C&PID_5805.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5805&REV_0101&MI_00
+%USB\VID_0A5C&PID_5805.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5805&REV_0102
+%USB\VID_0A5C&PID_5805.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5805&REV_0102&MI_00
+%USB\VID_0A5C&PID_5810.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5810
+%USB\VID_0A5C&PID_5810.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5810&REV_0101
+
+
+; For XP and later
+[Dell.NTAMD64]
+%USB\VID_0A5C&PID_0000.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_0000
+%USB\VID_0A5C&PID_0000.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_0000&REV_0101
+%USB\VID_0A5C&PID_5800.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5800&REV_0101&MI_00
+%USB\VID_0A5C&PID_5800.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5800&REV_0102
+%USB\VID_0A5C&PID_5800.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5800&REV_0102&MI_00
+%USB\VID_0A5C&PID_5801.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5801&REV_0101&MI_00
+%USB\VID_0A5C&PID_5801.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5801&REV_0102
+%USB\VID_0A5C&PID_5801.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5801&REV_0102&MI_00
+%USB\VID_0A5C&PID_5802.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5802&REV_0101&MI_00
+%USB\VID_0A5C&PID_5802.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5802&REV_0102
+%USB\VID_0A5C&PID_5802.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5802&REV_0102&MI_00
+%USB\VID_0A5C&PID_5803.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5803&REV_0101&MI_01
+%USB\VID_0A5C&PID_5804.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5804&REV_0101&MI_00
+%USB\VID_0A5C&PID_5804.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5804&REV_0102
+%USB\VID_0A5C&PID_5804.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5804&REV_0102&MI_00
+%USB\VID_0A5C&PID_5805.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5805&REV_0101&MI_00
+%USB\VID_0A5C&PID_5805.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5805&REV_0102
+%USB\VID_0A5C&PID_5805.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5805&REV_0102&MI_00
+%USB\VID_0A5C&PID_5810.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5810
+%USB\VID_0A5C&PID_5810.DeviceDesc%=cvusbdrv.Dev, USB\VID_0A5C&PID_5810&REV_0101
+
+
+[cvusbdrv.Dev.NT]
+CopyFiles=cvusbdrv.Files.Ext
+
+
+;[Switch.Dev.NT]
+;;dummy section
+
+;[Switch.Dev.NT.Services]
+;AddService = , %SPSVCINST_ASSOCSERVICE%, 
+
+[cvusbdrv.Dev.NT.Services]
+Addservice = cvusbdrv, 2, cvusbdrv.AddService
+
+[cvusbdrv.AddService]
+DisplayName    = %cvusbdrv.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\cvusbdrv.sys
+AddReg         = cvusbdrv.AddReg
+LoadOrderGroup = Base
+
+[cvusbdrv.AddReg]
+HKR, Parameters\Wdf, VerboseOn,       0x00010001, 1
+HKR, Parameters\Wdf, VerifierOn,      0x00010001, 1
+HKR, Parameters\Wdf, DbgBreakOnError, 0x00010001, 1
+
+[cvusbdrv.Files.Ext]
+cvusbdrv.sys
+
+[SourceDisksNames]
+1=%Disk_Description%,,,
+
+[SourceDisksFiles]
+cvusbdrv.sys = 1
+WdfCoInstaller01009.dll=1 ; make sure the number matches with SourceDisksNames
+
+[DestinationDirs]
+DefaultDestDir = 12
+CoInstaller_CopyFiles = 11
+
+;-------------- WDF Coinstaller installation
+
+[cvusbdrv.Dev.NT.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[cvusbdrv.Dev.NT.Wdf]
+KmdfService = cvusbdrv, cvusbdrv_wdfsect
+[cvusbdrv_wdfsect]
+KmdfLibraryVersion = 1.9
+
+;---------------------------------------------------------------;
+
+[Strings]
+ProviderName="Dell"
+MfgName="Dell"
+Disk_Description="Dell ControlVault(cvusbdrv) Installation Disk"
+USB\VID_0A5C&PID_0000.DeviceDesc="Dell ControlVault"
+USB\VID_0A5C&PID_5800.DeviceDesc="Dell ControlVault w/o Fingerprint Sensor"
+USB\VID_0A5C&PID_5801.DeviceDesc="Dell ControlVault w/ Fingerprint Swipe Sensor"
+USB\VID_0A5C&PID_5802.DeviceDesc="Dell ControlVault w/ Fingerprint Touch Sensor"
+USB\VID_0A5C&PID_5803.DeviceDesc="Dell ControlVault w/ Secure Keyboard"
+USB\VID_0A5C&PID_5804.DeviceDesc="Dell ControlVault w/ Fingerprint Swipe Sensor"
+USB\VID_0A5C&PID_5805.DeviceDesc="Dell ControlVault w/ Fingerprint Touch Sensor"
+USB\VID_0A5C&PID_5810.DeviceDesc="Dell ControlVault 2"
+cvusbdrv.SvcDesc="Dell ControlVault"
+CVaultClassName="ControlVault Device"
+

@@ -1,0 +1,379 @@
+;*****************************************************************************
+;
+; Mbm3bus.inf   -- Install the F3607gw Mobile Broadband Device drivers
+;
+; Copyright (c) 1997-2011 by MCCI Corporation 
+;
+; MCCI is a registered trademark of MCCI Corporation.
+;
+; NOTICE: This software is licensed, not sold.  Any modification of this
+; inf file to change the reference to an operating system or to change the
+; reference to a device is not permitted unless authorized in writing by
+; MCCI Corporation.
+;
+;*****************************************************************************
+
+[version]
+signature="$WINDOWS NT$"
+Class=USB
+ClassGuid={36FC9E60-c465-11cf-8056-444553540000}
+Provider=%Provider%
+DriverVer=04/20/2012,7.1.0.1
+CatalogFile=d557bus.cat
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+;-----------------------------------------------------------------------------
+; Specify target paths...
+;-----------------------------------------------------------------------------
+[DestinationDirs]
+DefaultDestDir                  = 11                    ; LDID_SYS
+d557Wdm.NT.CopyFiles        = 12                    ; system32\drivers
+PropPages.CopyFiles             = 11                    ; system
+
+;-----------------------------------------------------------------------------
+; Specify the install disks.  A bit unwieldy during development.
+;-----------------------------------------------------------------------------
+[SourceDisksNames.x86]
+; diskid = description[, [tagfile] [, <unused>, subdir]]
+1=%DiskString%,"Mbm3CBus.sys",,\i386
+
+
+[SourceDisksNames.amd64]
+; diskid = description[, [tagfile] [, <unused>, subdir]]
+1=%DiskString%,"Mbm3CBus.sys",,\amd64
+
+
+
+[SourceDisksFiles]
+; filename = diskid[, [subdir] [, size]]
+Mbm3CBus.sys = 1
+Mbm3whnt.sys = 1
+
+;-----------------------------------------------------------------------------
+; Table of Contents:  manufacturer, then devices.
+;-----------------------------------------------------------------------------
+[Manufacturer]
+%Dell%=d557, NTamd64
+
+;-----------------------------------------------------------------------------
+; The devices
+;-----------------------------------------------------------------------------
+[d557]
+%d557.CdcBus.Desc% = VID_413c&PID_8183Wdm.Install, USB\VID_413c&PID_8183
+%d557.CdcBus.Desc% = VID_413c&PID_8184Wdm.Install, USB\VID_413c&PID_8184
+%d557.CdcBus.Desc.2% = VID_413c&PID_818bWdm.Install, USB\VID_413c&PID_818b
+%d557.CdcBus.Desc.3% = VID_413c&PID_818cWdm.Install, USB\VID_413c&PID_818c
+%d557.CdcBus.Desc.4% = VID_413c&PID_818dWdm.Install, USB\VID_413c&PID_818d
+%d557.CdcBus.Desc.5% = VID_413c&PID_818eWdm.Install, USB\VID_413c&PID_818e
+
+[d557.NTamd64]
+%d557.CdcBus.Desc% = VID_413c&PID_8183Wdm.Install, USB\VID_413c&PID_8183
+%d557.CdcBus.Desc% = VID_413c&PID_8184Wdm.Install, USB\VID_413c&PID_8184
+%d557.CdcBus.Desc.2% = VID_413c&PID_818bWdm.Install, USB\VID_413c&PID_818b
+%d557.CdcBus.Desc.3% = VID_413c&PID_818cWdm.Install, USB\VID_413c&PID_818c
+%d557.CdcBus.Desc.4% = VID_413c&PID_818dWdm.Install, USB\VID_413c&PID_818d
+%d557.CdcBus.Desc.5% = VID_413c&PID_818eWdm.Install, USB\VID_413c&PID_818e
+
+;-----------------------------------------------------------------------------
+; How to install them:  
+; On NT, the system first tries [section.NT], then [section].
+;-----------------------------------------------------------------------------
+
+;-----------------------------------------------------------------------------
+; Diagnostics Files CopyFiles List Section
+;-----------------------------------------------------------------------------
+[d557.CopyFiles]
+
+;-----------------------------------------------------------------------------
+; XXX when we have a property page DLL, add it to the following section.
+;-----------------------------------------------------------------------------
+[PropPages.CopyFiles]
+
+
+;-----------------------------------------------------------------------------
+;       How to install the WDM driver on NT
+;-----------------------------------------------------------------------------
+
+[VID_413c&PID_8183Wdm.Install.NT]
+CopyFiles       = d557Wdm.NT.CopyFiles
+AddReg          = VID_413c&PID_8183Wdm.AddReg, d557Wdm.NT.AddReg
+[VID_413c&PID_8184Wdm.Install.NT]
+CopyFiles       = d557Wdm.NT.CopyFiles
+AddReg          = VID_413c&PID_8184Wdm.AddReg, d557Wdm.NT.AddReg
+[VID_413c&PID_818bWdm.Install.NT]
+CopyFiles       = d557Wdm.NT.CopyFiles
+AddReg          = VID_413c&PID_818bWdm.AddReg, d557Wdm.NT.AddReg
+[VID_413c&PID_818cWdm.Install.NT]
+CopyFiles       = d557Wdm.NT.CopyFiles
+AddReg          = VID_413c&PID_818cWdm.AddReg, d557Wdm.NT.AddReg
+[VID_413c&PID_818dWdm.Install.NT]
+CopyFiles       = d557Wdm.NT.CopyFiles
+AddReg          = VID_413c&PID_818dWdm.AddReg, d557Wdm.NT.AddReg
+[VID_413c&PID_818eWdm.Install.NT]
+CopyFiles       = d557Wdm.NT.CopyFiles
+AddReg          = VID_413c&PID_818eWdm.AddReg, d557Wdm.NT.AddReg
+
+;-----------------------------------------------------------------------------
+;       How to start the WDM driver on NT
+;-----------------------------------------------------------------------------
+
+
+[VID_413c&PID_8183Wdm.Install.NT.Services]
+AddService      = Mbm3CBus, 2, VID_413c&PID_8183Wdm.AddService, d557Wdm.Install.EventLog
+
+[VID_413c&PID_8183Wdm.AddService]
+DisplayName             = %d557.Service.Desc%
+ServiceType             = 1     ; SERVICE_KERNEL_DRIVER
+StartType               = 3     ; SERVICE_DEMAND_START
+ErrorControl            = 1     ; SERVICE_ERROR_NORMAL
+ServiceBinary           = %12%\Mbm3CBus.sys
+LoadOrderGroup          = Base
+[VID_413c&PID_8184Wdm.Install.NT.Services]
+AddService      = Mbm3CBus, 2, VID_413c&PID_8184Wdm.AddService, d557Wdm.Install.EventLog
+
+[VID_413c&PID_8184Wdm.AddService]
+DisplayName             = %d557.Service.Desc%
+ServiceType             = 1     ; SERVICE_KERNEL_DRIVER
+StartType               = 3     ; SERVICE_DEMAND_START
+ErrorControl            = 1     ; SERVICE_ERROR_NORMAL
+ServiceBinary           = %12%\Mbm3CBus.sys
+LoadOrderGroup          = Base
+[VID_413c&PID_818bWdm.Install.NT.Services]
+AddService      = Mbm3CBus, 2, VID_413c&PID_818bWdm.AddService, d557Wdm.Install.EventLog
+
+[VID_413c&PID_818bWdm.AddService]
+DisplayName             = %d557.Service.Desc.2%
+ServiceType             = 1     ; SERVICE_KERNEL_DRIVER
+StartType               = 3     ; SERVICE_DEMAND_START
+ErrorControl            = 1     ; SERVICE_ERROR_NORMAL
+ServiceBinary           = %12%\Mbm3CBus.sys
+LoadOrderGroup          = Base
+[VID_413c&PID_818cWdm.Install.NT.Services]
+AddService      = Mbm3CBus, 2, VID_413c&PID_818cWdm.AddService, d557Wdm.Install.EventLog
+
+[VID_413c&PID_818cWdm.AddService]
+DisplayName             = %d557.Service.Desc.3%
+ServiceType             = 1     ; SERVICE_KERNEL_DRIVER
+StartType               = 3     ; SERVICE_DEMAND_START
+ErrorControl            = 1     ; SERVICE_ERROR_NORMAL
+ServiceBinary           = %12%\Mbm3CBus.sys
+LoadOrderGroup          = Base
+[VID_413c&PID_818dWdm.Install.NT.Services]
+AddService      = Mbm3CBus, 2, VID_413c&PID_818dWdm.AddService, d557Wdm.Install.EventLog
+
+[VID_413c&PID_818dWdm.AddService]
+DisplayName             = %d557.Service.Desc.4%
+ServiceType             = 1     ; SERVICE_KERNEL_DRIVER
+StartType               = 3     ; SERVICE_DEMAND_START
+ErrorControl            = 1     ; SERVICE_ERROR_NORMAL
+ServiceBinary           = %12%\Mbm3CBus.sys
+LoadOrderGroup          = Base
+[VID_413c&PID_818eWdm.Install.NT.Services]
+AddService      = Mbm3CBus, 2, VID_413c&PID_818eWdm.AddService, d557Wdm.Install.EventLog
+
+[VID_413c&PID_818eWdm.AddService]
+DisplayName             = %d557.Service.Desc.5%
+ServiceType             = 1     ; SERVICE_KERNEL_DRIVER
+StartType               = 3     ; SERVICE_DEMAND_START
+ErrorControl            = 1     ; SERVICE_ERROR_NORMAL
+ServiceBinary           = %12%\Mbm3CBus.sys
+LoadOrderGroup          = Base
+
+
+
+;-----------------------------------------------------------------------------
+;       Setup event logging, if driver supports it
+;-----------------------------------------------------------------------------
+
+[d557Wdm.Install.EventLog]
+Addreg = d557Wdm.EventLog.AddReg
+
+[d557Wdm.EventLog.AddReg]
+HKR,,EventMessageFile, 0x20000, "%%SystemRoot%%\System32\drivers\Mbm3CBus.sys"
+HKR,,TypesSupported, 0x10001, 7
+
+;-----------------------------------------------------------------------------
+;       WDM registry entries (all platforms)
+;-----------------------------------------------------------------------------
+[VID_413c&PID_8183Wdm.AddReg]
+HKR,Scenarios,Scenario,0x10001, 00,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\Description, default,, "Dell Wireless 5540 HSPA Mini-Card Network Adapter"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareId,, "USB\Vid_$VID&Pid_$PID&Mi_$IFC$,"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareIdList,, "USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC$,USB\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&MI_$IFC$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_06,CompatibleIdList,, "USB\Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Class_$CLASS&SubClass_$SUBCLASS$,USB\Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_08\Description, default,, "Dell Wireless 5540 HSPA Mini-Card USIM Port"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareId,, "DELL\SMARTCARD2$,"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_08,CompatibleIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_09\AdditionalIfcs, 0000, 0x10001, 0a,00,00,00
+HKR,Scenarios\Scenario_0\ifc_09\Description, default,, "Dell Wireless 5540 HSPA Mini-Card GPS Port"
+HKR,Scenarios\Scenario_0\ifc_09,HardwareId,, "DELL\GPS2$,"
+HKR,Scenarios\Scenario_0\ifc_09,HardwareIdList,, "DELL\GPS2$,DELL\GPS2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_09,CompatibleIdList,,"DELL\GPS2$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,,Configuration,0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0000, 0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0001, 0x10001, 02,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_8183\LocationPaths\*", Removable, 0x10001, 0
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_8183\ChildLocationPaths\*", Removable, 0x10001, 0
+HKR,,MCCI_TCPWindowSizeFix_MinValue,0x10001,f0,fa,00,00
+HKR,,MCCI_MCECIDFix,0x10001,07,00,00,00
+[VID_413c&PID_8184Wdm.AddReg]
+HKR,Scenarios,Scenario,0x10001, 00,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\Description, default,, "Dell Wireless 5540 HSPA Mini-Card Network Adapter"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareId,, "USB\Vid_$VID&Pid_$PID&Mi_$IFC$,"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareIdList,, "USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC$,USB\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&MI_$IFC$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_06,CompatibleIdList,, "USB\Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Class_$CLASS&SubClass_$SUBCLASS$,USB\Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_08\Description, default,, "Dell Wireless 5540 HSPA Mini-Card USIM Port"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareId,, "DELL\SMARTCARD2$,"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_08,CompatibleIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_09\AdditionalIfcs, 0000, 0x10001, 0a,00,00,00
+HKR,Scenarios\Scenario_0\ifc_09\Description, default,, "Dell Wireless 5540 HSPA Mini-Card GPS Port"
+HKR,Scenarios\Scenario_0\ifc_09,HardwareId,, "DELL\GPS2$,"
+HKR,Scenarios\Scenario_0\ifc_09,HardwareIdList,, "DELL\GPS2$,DELL\GPS2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_09,CompatibleIdList,,"DELL\GPS2$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,,Configuration,0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0000, 0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0001, 0x10001, 02,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_8184\LocationPaths\*", Removable, 0x10001, 0
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_8184\ChildLocationPaths\*", Removable, 0x10001, 0
+HKR,,MCCI_TCPWindowSizeFix_MinValue,0x10001,f0,fa,00,00
+HKR,,MCCI_MCECIDFix,0x10001,07,00,00,00
+[VID_413c&PID_818dWdm.AddReg]
+HKR,Scenarios,Scenario,0x10001, 00,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\Description, default,, "Dell Wireless 5550 HSPA+ Mini-Card Network Adapter"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareId,, "USB\Vid_$VID&Pid_$PID&Mi_$IFC$,"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareIdList,, "USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC$,USB\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&MI_$IFC$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_06,CompatibleIdList,, "USB\Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Class_$CLASS&SubClass_$SUBCLASS$,USB\Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_08\Description, default,, "Dell Wireless 5550 HSPA+ Mini-Card USIM Port"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareId,, "DELL\SMARTCARD2$,"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_08,CompatibleIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_09\AdditionalIfcs, 0000, 0x10001, 0a,00,00,00
+HKR,Scenarios\Scenario_0\ifc_09\Description, default,, "Dell Wireless 5550 HSPA+ Mini-Card GPS Port"
+HKR,Scenarios\Scenario_0\ifc_09,HardwareId,, "DELL\GPS2$,"
+HKR,Scenarios\Scenario_0\ifc_09,HardwareIdList,, "DELL\GPS2$,DELL\GPS2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_09,CompatibleIdList,,"DELL\GPS2$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,,Configuration,0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0000, 0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0001, 0x10001, 02,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_818d\LocationPaths\*", Removable, 0x10001, 0
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_818d\ChildLocationPaths\*", Removable, 0x10001, 0
+HKR,,MCCI_TCPWindowSizeFix_MinValue,0x10001,f0,fa,00,00
+HKR,,MCCI_MCECIDFix,0x10001,07,00,00,00
+[VID_413c&PID_818eWdm.AddReg]
+HKR,Scenarios,Scenario,0x10001, 00,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\Description, default,, "Dell Wireless 5560 HSPA+ Mini-Card Network Adapter"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareId,, "USB\Vid_$VID&Pid_$PID&Mi_$IFC$,"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareIdList,, "USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC$,USB\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&MI_$IFC$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_06,CompatibleIdList,, "USB\Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Class_$CLASS&SubClass_$SUBCLASS$,USB\Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_08\Description, default,, "Dell Wireless 5560 HSPA+ Mini-Card USIM Port"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareId,, "DELL\SMARTCARD2$,"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_08,CompatibleIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_09\AdditionalIfcs, 0000, 0x10001, 0a,00,00,00
+HKR,Scenarios\Scenario_0\ifc_09\Description, default,, "Dell Wireless 5560 HSPA+ Mini-Card GPS Port"
+HKR,Scenarios\Scenario_0\ifc_09,HardwareId,, "DELL\GPS2$,"
+HKR,Scenarios\Scenario_0\ifc_09,HardwareIdList,, "DELL\GPS2$,DELL\GPS2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_09,CompatibleIdList,,"DELL\GPS2$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\GPS2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,,Configuration,0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0000, 0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0001, 0x10001, 02,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_818e\LocationPaths\*", Removable, 0x10001, 0
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_818e\ChildLocationPaths\*", Removable, 0x10001, 0
+HKR,,MCCI_TCPWindowSizeFix_MinValue,0x10001,f0,fa,00,00
+HKR,,MCCI_MCECIDFix,0x10001,07,00,00,00
+[VID_413c&PID_818bWdm.AddReg]
+HKR,Scenarios,Scenario,0x10001, 00,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\Description, default,, "Dell Wireless 5541 HSPA Mini-Card Network Adapter"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareId,, "USB\Vid_$VID&Pid_$PID&Mi_$IFC$,"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareIdList,, "USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC$,USB\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&MI_$IFC$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_06,CompatibleIdList,, "USB\Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Class_$CLASS&SubClass_$SUBCLASS$,USB\Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_08\Description, default,, "Dell Wireless 5541 HSPA Mini-Card USIM Port"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareId,, "DELL\SMARTCARD2$,"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_08,CompatibleIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,,Configuration,0x10001, 02,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0000, 0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0001, 0x10001, 02,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_818b\LocationPaths\*", Removable, 0x10001, 0
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_818b\ChildLocationPaths\*", Removable, 0x10001, 0
+HKR,,MCCI_TCPWindowSizeFix_MinValue,0x10001,f0,fa,00,00
+HKR,,MCCI_MCECIDFix,0x10001,07,00,00,00
+[VID_413c&PID_818cWdm.AddReg]
+HKR,Scenarios,Scenario,0x10001, 00,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\Description, default,, "Dell Wireless 5542 HSPA Mini-Card Network Adapter"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareId,, "USB\Vid_$VID&Pid_$PID&Mi_$IFC$,"
+HKR,Scenarios\Scenario_0\ifc_06,HardwareIdList,, "USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&Rev_$REV&Mi_$IFC$,USB\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,USB\Vid_$VID&Pid_$PID&MI_$IFC$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS&Os_$OS$,USB\Vid_$VID&Pid_$PID&Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_06,CompatibleIdList,, "USB\Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,USB\Class_$CLASS&SubClass_$SUBCLASS$,USB\Class_$CLASS$,$,"
+HKR,Scenarios\Scenario_0\ifc_08\Description, default,, "Dell Wireless 5542 HSPA Mini-Card USIM Port"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareId,, "DELL\SMARTCARD2$,"
+HKR,Scenarios\Scenario_0\ifc_08,HardwareIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Class_$CLASS&SubClass_$SUBCLASS&Prot_$PROT$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&MI_$IFC$,$,"
+HKR,Scenarios\Scenario_0\ifc_08,CompatibleIdList,, "DELL\SMARTCARD2$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC&Os_$OS$,DELL\SMARTCARD2\Vid_$VID&Pid_$PID&Mi_$IFC$,$,"
+HKR,,Configuration,0x10001, 02,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0000, 0x10001, 01,00,00,00
+HKR,Scenarios\Scenario_0\ifc_06\AdditionalIfcs, 0001, 0x10001, 02,00,00,00
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_818c\LocationPaths\*", Removable, 0x10001, 0
+HKLM,"SYSTEM\CurrentControlSet\Control\DeviceOverrides\USB#VID_413c&PID_818c\ChildLocationPaths\*", Removable, 0x10001, 0
+HKR,,MCCI_TCPWindowSizeFix_MinValue,0x10001,f0,fa,00,00
+HKR,,MCCI_MCECIDFix,0x10001,07,00,00,00
+
+
+
+;-----------------------------------------------------------------------------
+;       WDM registry entries (NT only)
+;-----------------------------------------------------------------------------
+[d557Wdm.NT.AddReg]
+HKR,,EnableCR3840, 0x10001, 01,00,00,00
+HKR,,EnableSelectiveSuspend, 0x10001, 00,00,00,00
+HKR,,AllowRemoteWakeup, 0x10001, 01,00,00,00
+HKR,,PowerHeuristics,0x10001, 30,00,40,04
+HKR,,EnableCR9111, 0x10001, 01,00,00,00
+
+;-----------------------------------------------------------------------------
+;       The WDM copy list for NT -- different because things go in
+;       different places.
+;-----------------------------------------------------------------------------
+[d557Wdm.NT.CopyFiles]
+Mbm3CBus.sys
+Mbm3wh.sys,Mbm3whnt.sys
+Mbm3whnt.sys
+
+
+;****************************************************************************
+; Localizable Strings
+;****************************************************************************
+[strings]
+
+;BEGIN ENG - US English Strings
+Provider = "Dell"
+Dell = "Dell"
+
+d557.CdcBus.Desc = "Dell Wireless 5540 HSPA Mini-Card Device"
+d557.Service.Desc = "Dell Wireless 5540 HSPA Mini-Card Device (WDM)"
+d557.CdcBus.Desc.2 = "Dell Wireless 5541 HSPA Mini-Card Device"
+d557.Service.Desc.2 = "Dell Wireless 5541 HSPA Mini-Card Device (WDM)"
+d557.CdcBus.Desc.3 = "Dell Wireless 5542 HSPA Mini-Card Device"
+d557.Service.Desc.3 = "Dell Wireless 5542 HSPA Mini-Card Device (WDM)"
+d557.CdcBus.Desc.4 = "Dell Wireless 5550 HSPA+ Mini-Card Device"
+d557.Service.Desc.4 = "Dell Wireless 5550 HSPA+ Mini-Card Device (WDM)"
+d557.CdcBus.Desc.5 = "Dell Wireless 5560 HSPA+ Mini-Card Device"
+d557.Service.Desc.5 = "Dell Wireless 5560 HSPA+ Mini-Card Device (WDM)"
+
+DiskString = "Dell Wireless 5540 HSPA Mini-Card Installation Disk"
+CustomerDataPath = "Dell Wireless 5540 HSPA Mini-Card"
+DriverSet = "Dell Wireless 5540 HSPA Mini-Card Software"
+UninstallFile = "MBM3Uninstall.exe"
+McciOptions = "Uninstallable"
+
+
+;END ENG - US English Strings
+
+;-----------------------------------------------------------------------------
+; Following are symbolic constants which don't change per locale.
+;-----------------------------------------------------------------------------
+
+;*** end of file ***
+

@@ -1,0 +1,2823 @@
+;---------------------------------------------------------------------
+; Apfiltr.inf
+;
+; Alps Pointing-device Driver for Windows x64 Installation
+; Copyright(C) 1999-2014 Alps Electric Co., Ltd.
+;---------------------------------------------------------------------
+
+[Version]
+Signature	= "$Windows NT$"
+Provider	= %Provider%
+Class		= Mouse
+ClassGUID	= {4D36E96F-E325-11CE-BFC1-08002BE10318}
+CatalogFile	= Apfiltr.cat
+DriverVer	= 06/02/2014, 8.1206.101.112
+DriverPackageDisplayName	= "Dell Touchpad"
+
+[DestinationDirs]
+DefaultDestDir			= 12
+MouFilter_CopyFiles_CoInstaller = 11
+MouFilter_CopyFilesDll		= 11
+MouFilter_CopyFilesHome		= 16422, %Apoint_Path%
+MouFilter_CopyFilesCursor	= 16422, %Path_Data_Cur%
+
+; Manufacturer Sections
+; ---------------------------------------------------------
+[Manufacturer]
+%Mfg.Desc%		= CompanyMfg,NTx86,NTamd64,NTx86.6.2,NTamd64.6.2,NTx86.6.3,NTamd64.6.3
+
+[CompanyMfg.NTamd64.6.3]; for Win8.1 64-bit later
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81.nt,ACPI\AUI0000
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E2_00.nt,ACPI\DLL040A
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E2_01.nt,ACPI\DLL040B
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E2_01.nt,ACPI\DLL040C
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E2_02.nt,ACPI\DLL0428
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E2_02.nt,ACPI\DLL0429
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E2_03.nt,ACPI\DLL0410
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_02.nt,ACPI\DLL0492
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_01.nt,ACPI\DLL0493
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_01.nt,ACPI\DLL0494
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_01.nt,ACPI\DLL04A3
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_01.nt,ACPI\DLL04A4
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_01.nt,ACPI\DLL049A
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_01.nt,ACPI\DLL049B
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_02.nt,ACPI\DLL04A9
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_03.nt,ACPI\DLL04B4
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_01.nt,ACPI\DLL04EB
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_01.nt,ACPI\DLL04EC
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E3_01.nt,ACPI\DLL04E4
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_01.nt,ACPI\DLL0534
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_01.nt,ACPI\DLL0535
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_01.nt,ACPI\DLL053C
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_01.nt,ACPI\DLL053D
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_01.nt,ACPI\DLL0549
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_01.nt,ACPI\DLL054A
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_01.nt,ACPI\DLL053E
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_01.nt,ACPI\DLL053F
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_02.nt,ACPI\DLL0532
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_02.nt,ACPI\DLL0533
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_01.nt,ACPI\DLL057D
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E4_03.nt,ACPI\DLL0584
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_01.nt,ACPI\DLL05BC
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_01.nt,ACPI\DLL05BD
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_01.nt,ACPI\DLL05BE
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_02.nt,ACPI\DLL05CA
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_02.nt,ACPI\DLL05CB
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_02.nt,ACPI\DLL05DD
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_03.nt,ACPI\DLL05CC
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_03.nt,ACPI\DLL05CD
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_04.nt,ACPI\DLL05DC
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_05.nt,ACPI\DLL05DE
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_05.nt,ACPI\DLL05E0
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_06.nt,ACPI\DLL061F
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_01.nt,ACPI\DLL062A
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_01.nt,ACPI\DLL0644
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_02.nt,ACPI\DLL062B
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_02.nt,ACPI\DLL0645
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_02.nt,ACPI\DLL062C
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_02.nt,ACPI\DLL0646
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_02.nt,ACPI\DLL062D
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_02.nt,ACPI\DLL0648
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_02.nt,ACPI\DLL062E
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_02.nt,ACPI\DLL0649
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E6_02.nt,ACPI\DLL062F
+%Apoint.DeviceDesc%	= MouFilter_Inst_W81_Dell_E5_01.nt,ACPI\DLL0684
+
+[CompanyMfg.NTamd64.6.2]; for Win8 64-bit
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8.nt,ACPI\AUI0000
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E2_00.nt,ACPI\DLL040A
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E2_01.nt,ACPI\DLL040B
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E2_01.nt,ACPI\DLL040C
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E2_02.nt,ACPI\DLL0428
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E2_02.nt,ACPI\DLL0429
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E2_03.nt,ACPI\DLL0410
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_02.nt,ACPI\DLL0492
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_01.nt,ACPI\DLL0493
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_01.nt,ACPI\DLL0494
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_01.nt,ACPI\DLL04A3
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_01.nt,ACPI\DLL04A4
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_01.nt,ACPI\DLL049A
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_01.nt,ACPI\DLL049B
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_02.nt,ACPI\DLL04A9
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_03.nt,ACPI\DLL04B4
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_01.nt,ACPI\DLL04EB
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_01.nt,ACPI\DLL04EC
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E3_01.nt,ACPI\DLL04E4
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_01.nt,ACPI\DLL0534
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_01.nt,ACPI\DLL0535
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_01.nt,ACPI\DLL053C
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_01.nt,ACPI\DLL053D
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_01.nt,ACPI\DLL0549
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_01.nt,ACPI\DLL054A
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_01.nt,ACPI\DLL053E
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_01.nt,ACPI\DLL053F
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_02.nt,ACPI\DLL0532
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_02.nt,ACPI\DLL0533
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_01.nt,ACPI\DLL057D
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E4_03.nt,ACPI\DLL0584
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_01.nt,ACPI\DLL05BC
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_01.nt,ACPI\DLL05BD
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_01.nt,ACPI\DLL05BE
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_02.nt,ACPI\DLL05CA
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_02.nt,ACPI\DLL05CB
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_02.nt,ACPI\DLL05DD
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_03.nt,ACPI\DLL05CC
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_03.nt,ACPI\DLL05CD
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_04.nt,ACPI\DLL05DC
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_05.nt,ACPI\DLL05DE
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_05.nt,ACPI\DLL05E0
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_06.nt,ACPI\DLL061F
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_01.nt,ACPI\DLL062A
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_01.nt,ACPI\DLL0644
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_02.nt,ACPI\DLL062B
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_02.nt,ACPI\DLL0645
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_02.nt,ACPI\DLL062C
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_02.nt,ACPI\DLL0646
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_02.nt,ACPI\DLL062D
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_02.nt,ACPI\DLL0648
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_02.nt,ACPI\DLL062E
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_02.nt,ACPI\DLL0649
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E6_02.nt,ACPI\DLL062F
+%Apoint.DeviceDesc%	= MouFilter_Inst_W8_Dell_E5_01.nt,ACPI\DLL0684
+
+[CompanyMfg.NTamd64]	; for Other 64-bit OS
+%Apoint.DeviceDesc%	= MouFilter_Inst.nt,ACPI\AUI0000
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E2_00.nt,ACPI\DLL040A
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E2_01.nt,ACPI\DLL040B
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E2_01.nt,ACPI\DLL040C
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E2_02.nt,ACPI\DLL0428
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E2_02.nt,ACPI\DLL0429
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E2_03.nt,ACPI\DLL0410
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_02.nt,ACPI\DLL0492
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_01.nt,ACPI\DLL0493
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_01.nt,ACPI\DLL0494
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_01.nt,ACPI\DLL04A3
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_01.nt,ACPI\DLL04A4
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_01.nt,ACPI\DLL049A
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_01.nt,ACPI\DLL049B
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_02.nt,ACPI\DLL04A9
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_03.nt,ACPI\DLL04B4
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_01.nt,ACPI\DLL04EB
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_01.nt,ACPI\DLL04EC
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E3_01.nt,ACPI\DLL04E4
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_01.nt,ACPI\DLL0534
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_01.nt,ACPI\DLL0535
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_01.nt,ACPI\DLL053C
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_01.nt,ACPI\DLL053D
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_01.nt,ACPI\DLL0549
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_01.nt,ACPI\DLL054A
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_01.nt,ACPI\DLL053E
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_01.nt,ACPI\DLL053F
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_02.nt,ACPI\DLL0532
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_02.nt,ACPI\DLL0533
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_01.nt,ACPI\DLL057D
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E4_03.nt,ACPI\DLL0584
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_01.nt,ACPI\DLL05BC
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_01.nt,ACPI\DLL05BD
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_01.nt,ACPI\DLL05BE
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_02.nt,ACPI\DLL05CA
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_02.nt,ACPI\DLL05CB
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_02.nt,ACPI\DLL05DD
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_03.nt,ACPI\DLL05CC
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_03.nt,ACPI\DLL05CD
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_04.nt,ACPI\DLL05DC
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_05.nt,ACPI\DLL05DE
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_05.nt,ACPI\DLL05E0
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_06.nt,ACPI\DLL061F
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_01.nt,ACPI\DLL062A
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_01.nt,ACPI\DLL0644
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_02.nt,ACPI\DLL062B
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_02.nt,ACPI\DLL0645
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_02.nt,ACPI\DLL062C
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_02.nt,ACPI\DLL0646
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_02.nt,ACPI\DLL062D
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_02.nt,ACPI\DLL0648
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_02.nt,ACPI\DLL062E
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_02.nt,ACPI\DLL0649
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E6_02.nt,ACPI\DLL062F
+%Apoint.DeviceDesc%	= MouFilter_Inst_Dell_E5_01.nt,ACPI\DLL0684
+
+
+[CompanyMfg.NTx86.6.3]	; for Win8.1 32-bit later
+[CompanyMfg.NTx86.6.2]	; for Win8 32-bit
+[CompanyMfg.NTx86]	; for Other 32-bit OS
+[CompanyMfg]		; for Others
+; Not supported
+
+
+; Install Sections for PS/2 mouse
+; ---------------------------------------------------------
+; -------------------- Default Setting --------------------
+; ---------------------------------------------------------
+[MouFilter_Inst.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg
+
+[MouFilter_Inst.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg
+
+[MouFilter_Inst_W8.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg
+
+[MouFilter_Inst_W81.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E2_00 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E2_00.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E2_00.AddReg
+
+[MouFilter_Inst_Dell_E2_00.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E2_00.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E2_00.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E2_00.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E2_00.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E2_00.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E2_00.AddReg
+
+[MouFilter_Inst_W8_Dell_E2_00.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E2_00.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E2_00.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E2_00.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E2_00.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E2_00.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E2_00.AddReg
+
+[MouFilter_Inst_W81_Dell_E2_00.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E2_00.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E2_00.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E2_00.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E2_00.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E2_01 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E2_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E2_01.AddReg
+
+[MouFilter_Inst_Dell_E2_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E2_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E2_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E2_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E2_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E2_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E2_01.AddReg
+
+[MouFilter_Inst_W8_Dell_E2_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E2_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E2_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E2_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E2_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E2_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E2_01.AddReg
+
+[MouFilter_Inst_W81_Dell_E2_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E2_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E2_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E2_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E2_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E2_02 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E2_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E2_02.AddReg
+
+[MouFilter_Inst_Dell_E2_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E2_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E2_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E2_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E2_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E2_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E2_02.AddReg
+
+[MouFilter_Inst_W8_Dell_E2_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E2_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E2_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E2_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E2_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E2_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E2_02.AddReg
+
+[MouFilter_Inst_W81_Dell_E2_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E2_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E2_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E2_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E2_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E2_03 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E2_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E2_03.AddReg
+
+[MouFilter_Inst_Dell_E2_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E2_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E2_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E2_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E2_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E2_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E2_03.AddReg
+
+[MouFilter_Inst_W8_Dell_E2_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E2_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E2_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E2_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E2_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E2_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E2_03.AddReg
+
+[MouFilter_Inst_W81_Dell_E2_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E2_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E2_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E2_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E2_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E3_01 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E3_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E3_01.AddReg
+
+[MouFilter_Inst_Dell_E3_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E3_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E3_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E3_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E3_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E3_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E3_01.AddReg
+
+[MouFilter_Inst_W8_Dell_E3_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E3_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E3_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E3_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E3_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E3_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E3_01.AddReg
+
+[MouFilter_Inst_W81_Dell_E3_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E3_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E3_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E3_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E3_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E3_02 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E3_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E3_02.AddReg
+
+[MouFilter_Inst_Dell_E3_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E3_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E3_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E3_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E3_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E3_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E3_02.AddReg
+
+[MouFilter_Inst_W8_Dell_E3_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E3_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E3_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E3_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E3_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E3_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E3_02.AddReg
+
+[MouFilter_Inst_W81_Dell_E3_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E3_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E3_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E3_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E3_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E3_03 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E3_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E3_03.AddReg
+
+[MouFilter_Inst_Dell_E3_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E3_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E3_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E3_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E3_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E3_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E3_03.AddReg
+
+[MouFilter_Inst_W8_Dell_E3_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E3_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E3_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E3_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E3_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E3_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E3_03.AddReg
+
+[MouFilter_Inst_W81_Dell_E3_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E3_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E3_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E3_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E3_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E4_01 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E4_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E4_01.AddReg
+
+[MouFilter_Inst_Dell_E4_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E4_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E4_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E4_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E4_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E4_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E4_01.AddReg
+
+[MouFilter_Inst_W8_Dell_E4_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E4_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E4_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E4_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E4_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E4_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E4_01.AddReg
+
+[MouFilter_Inst_W81_Dell_E4_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E4_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E4_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E4_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E4_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E4_02 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E4_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E4_02.AddReg
+
+[MouFilter_Inst_Dell_E4_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E4_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E4_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E4_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E4_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E4_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E4_02.AddReg
+
+[MouFilter_Inst_W8_Dell_E4_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E4_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E4_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E4_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E4_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E4_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E4_02.AddReg
+
+[MouFilter_Inst_W81_Dell_E4_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E4_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E4_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E4_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E4_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E4_03 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E4_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E4_03.AddReg
+
+[MouFilter_Inst_Dell_E4_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E4_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E4_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E4_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E4_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E4_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E4_03.AddReg
+
+[MouFilter_Inst_W8_Dell_E4_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E4_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E4_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E4_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E4_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E4_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E4_03.AddReg
+
+[MouFilter_Inst_W81_Dell_E4_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E4_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E4_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E4_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E4_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E5_01 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E5_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_01.AddReg
+
+[MouFilter_Inst_Dell_E5_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E5_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E5_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E5_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E5_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_01.AddReg
+
+[MouFilter_Inst_W8_Dell_E5_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E5_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E5_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E5_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E5_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_01.AddReg
+
+[MouFilter_Inst_W81_Dell_E5_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E5_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E5_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E5_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E5_02 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E5_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_02.AddReg
+
+[MouFilter_Inst_Dell_E5_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E5_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E5_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E5_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E5_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_02.AddReg
+
+[MouFilter_Inst_W8_Dell_E5_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E5_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E5_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E5_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E5_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_02.AddReg
+
+[MouFilter_Inst_W81_Dell_E5_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E5_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E5_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E5_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E5_03 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E5_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_03.AddReg
+
+[MouFilter_Inst_Dell_E5_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E5_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E5_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E5_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E5_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_03.AddReg
+
+[MouFilter_Inst_W8_Dell_E5_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E5_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E5_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E5_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E5_03.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_03.AddReg
+
+[MouFilter_Inst_W81_Dell_E5_03.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E5_03.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_03.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E5_03.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E5_03.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E5_04 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E5_04.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_04.AddReg
+
+[MouFilter_Inst_Dell_E5_04.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E5_04.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_04.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E5_04.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E5_04.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E5_04.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_04.AddReg
+
+[MouFilter_Inst_W8_Dell_E5_04.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E5_04.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_04.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E5_04.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E5_04.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E5_04.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_04.AddReg
+
+[MouFilter_Inst_W81_Dell_E5_04.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E5_04.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_04.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E5_04.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E5_04.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E5_05 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E5_05.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_05.AddReg
+
+[MouFilter_Inst_Dell_E5_05.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E5_05.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_05.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E5_05.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E5_05.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E5_05.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_05.AddReg
+
+[MouFilter_Inst_W8_Dell_E5_05.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E5_05.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_05.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E5_05.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E5_05.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E5_05.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_05.AddReg
+
+[MouFilter_Inst_W81_Dell_E5_05.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E5_05.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, TP_OnOff_HotKey.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_05.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E5_05.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E5_05.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E5_06 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E5_06.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_06.AddReg
+
+[MouFilter_Inst_Dell_E5_06.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E5_06.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E5_06.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E5_06.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E5_06.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E5_06.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_06.AddReg
+
+[MouFilter_Inst_W8_Dell_E5_06.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E5_06.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E5_06.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E5_06.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E5_06.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E5_06.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_06.AddReg
+
+[MouFilter_Inst_W81_Dell_E5_06.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E5_06.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E5_06.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E5_06.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E5_06.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E6_01 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E6_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_Dell_E6_01.AddReg
+
+[MouFilter_Inst_Dell_E6_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E6_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_Dell_E6_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E6_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E6_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E6_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E6_01.AddReg
+
+[MouFilter_Inst_W8_Dell_E6_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E6_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E6_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E6_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E6_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E6_01.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E6_01.AddReg
+
+[MouFilter_Inst_W81_Dell_E6_01.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E6_01.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E6_01.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E6_01.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E6_01.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; ---------------------------------------------------------
+; ------------------ Dell_E6_02 Setting -------------------
+; ---------------------------------------------------------
+[MouFilter_Inst_Dell_E6_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_Dell_E6_02.AddReg
+
+[MouFilter_Inst_Dell_E6_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_Dell_E6_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_Dell_E6_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_Dell_E6_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_Dell_E6_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8 --------------------
+[MouFilter_Inst_W8_Dell_E6_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E6_02.AddReg
+
+[MouFilter_Inst_W8_Dell_E6_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W8_Dell_E6_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_Dell_E6_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W8_Dell_E6_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W8_Dell_E6_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+; -------------------- for Windows 8.1 --------------------
+[MouFilter_Inst_W81_Dell_E6_02.nt]
+Include		= msmouse.inf
+Needs		= PS2_Inst
+CopyFiles	= MouFilter_CopyFiles, MouFilter_CopyFilesDll, MouFilter_CopyFilesHome, MouFilter_CopyFilesCursor
+AddReg		= MouFilter_Inst.AddReg, DriverInfoAddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E6_02.AddReg
+
+[MouFilter_Inst_W81_Dell_E6_02.nt.Services]
+AddService	= ApfiltrService,, filter_Service_Inst
+AddService	= ApHidMonitorService,, HidMonitor_Service_Inst
+Include		= msmouse.inf
+Needs		= PS2_Inst.Services
+
+[MouFilter_Inst_W81_Dell_E6_02.nt.HW]
+AddReg		= MouFilter_Inst.HW.AddReg, MouFilter_Inst.AddReg, PAG1p4_Multi.AddReg, 3F-Gestures_E3_M12.AddReg, 2F-ScrollLock.AddReg, Advanced_Scroll.AddReg, MouFilter_Inst_Dell_E3_Default.AddReg, MouFilter_Inst_Dell_E4_Default.AddReg, MouFilter_Inst_Dell_E5_Default.AddReg, MouFilter_Inst_Dell_E6_Default.AddReg, T4_Standard.AddReg, MouFilter_Inst_W8.AddReg, MouFilter_Inst_W81.AddReg, MouFilter_Inst_Dell_E6_02.AddReg
+Include		= msmouse.inf
+Needs		= PS2_Inst.HW
+
+[MouFilter_Inst_W81_Dell_E6_02.nt.Wdf]
+KmdfService	= ApfiltrService, MouFilter_Inst_wdfsect
+
+[MouFilter_Inst_W81_Dell_E6_02.nt.CoInstallers]
+AddReg		= MouFilter_CoInstaller_AddReg
+CopyFiles	= MouFilter_CopyFiles_CoInstaller
+
+
+; Files Copy Sections
+; ---------------------------------------------------------
+[MouFilter_CopyFiles]
+Apfiltr.sys
+
+[MouFilter_CopyFilesDll]
+Vxdif.dll
+
+[MouFilter_CopyFilesHome]
+Apoint.exe
+ApntEx.exe
+Apoint.dll
+Elprop.dll
+EzAuto.dll
+Uninstap.exe
+ApInst.dll
+hidfind.exe
+ApMsgFwd.exe
+ApMouCpl.dll
+DellTPad.exe
+DellTouchpad.exe
+Dell.Framework.Library.dll
+HidMonitorSvc.exe
+
+[MouFilter_CopyFilesCursor]
+CirScrL.cur
+CirScrR.cur
+CirScrU.cur
+CirScrD.cur
+PadScrH.cur
+PadScrV.cur
+StkScr.cur
+StkScrH.cur
+StkScrV.cur
+Zoom.cur
+PadScr.cur
+Rotation.cur
+InrScr.cur
+InrScrH.cur
+InrScrV.cur
+
+[MouFilter_CopyFiles_CoInstaller]
+WdfCoInstaller01009.dll
+
+; AddReg Sections
+; ---------------------------------------------------------
+[MouFilter_Inst.HW.AddReg]                                        
+HKR,,			"UpperFilters",			0x00010000,"ApfiltrService"
+HKLM,%UNINST%
+
+[MouFilter_Inst.AddReg] 
+HKCR,CLSID\%APOINT_GUID%\InProcServer32,,		0x00000000,%16422%\%Apoint_Path%\Apoint.dll
+HKCR,CLSID\%APOINT_GUID%\InProcServer32,ThreadingModel,	0x00000000,Apartment
+HKLM,%SHELLPROP%\Alps 1Apoint Page,,			0x00000000,%APOINT_GUID%
+HKCR,CLSID\%APMOUCPL_GUID%\InProcServer32,,		0x00000000,%16422%\%Apoint_Path%\ApMouCpl.dll	;Add "Dell Touchpad"-tab to "Mouse Properties".
+HKCR,CLSID\%APMOUCPL_GUID%\InProcServer32,ThreadingModel,0x00000000,Apartment
+HKLM,%SHELLPROP%\AlpsDellTouchpad,,			0x00000000,%APMOUCPL_GUID%
+HKCR,CLSID\%APOINT_GUID%,"",				0x00000000,Dell Touchpad
+HKCR,CLSID\%APOINT_GUID%,"LocalizedString",		0x00000000,@%16422%\%Apoint_Path%\DellTouchpad.exe
+HKCR,CLSID\%APOINT_GUID%,"InfoTip",			0x00000000,@%16422%\%Apoint_Path%\DellTouchpad.exe
+HKCR,CLSID\%APOINT_GUID%,"System.ApplicationName",	0x00000000,Alps.DellTouchpad
+HKCR,CLSID\%APOINT_GUID%,"System.ControlPanel.Category",0x00000000,2
+HKCR,CLSID\%APOINT_GUID%\DefaultIcon, 	"",		0x00000000,%16422%\%Apoint_Path%\DellTouchpad.exe
+HKCR,CLSID\%APOINT_GUID%\Shell\Open\Command, "",	0x00000000,%16422%\%Apoint_Path%\DellTouchpad.exe
+HKLM,%SHELLPROP_CP%\%APOINT_GUID%,	"",		0x00000000,Dell Touchpad
+
+HKLM,%UNINST%,		"UninstallString",		0x00000000,%16422%\%Apoint_Path%\Uninstap.exe ADDREMOVE
+HKLM,%UNINST%,		"DisplayName",			0x00000000,"Dell Touchpad"
+HKLM,%UNINST%,		"DisplayIcon",			0x00000000,%16422%\%Apoint_Path%\DellTouchpad.exe
+HKLM,%UNINST%,		"DisplayVersion",		0x00000000,%DriverOEMVersion%
+HKLM,%UNINST%,		"Publisher",			0x00000000,"ALPS ELECTRIC CO., LTD."
+HKLM,%UNINST%,		"InstallLocation",		0x00000000,%16422%\%Apoint_Path%
+HKLM,%UNINST%,		"VersionMajor",			0x00010001,0x00000008
+HKLM,%UNINST%,		"VersionMinor",			0x00010001,0x000004B6
+
+;// Auto Run Apoint.exe
+HKLM,%RUN%,		"Apoint",			0x00000000,%16422%\%Apoint_Path%\Apoint.exe
+
+;// Set HKLM\Software\Alps\Apoint
+HKLM,%SetApoint%,	"HomeDirectory",		0x00020000,%16422%\%Apoint_Path%
+HKLM,%SetApoint%,	"TrayIcon",			0x00020000,TRUE
+HKLM,%SetApoint%,	"UseSound",			0x00010001,0x00000000
+HKLM,%SetApoint%,	"ProductVer",			0x00020000,%ProductVersion%
+HKLM,%SetApoint%,	"SnapTo",			0x00010001,0x00000000
+HKLM,%SetApoint%,	"EnableMultiUser",		0x00010001,0x00000002
+HKLM,%SetApoint%,	"SupportFunctionTab",		0x00010001,0x000005fb
+HKLM,%SetApoint%,	"TouchSensitivity",		0x00010001,0x00000008
+HKLM,%SetApoint%,	"Install_Flag",			0x00010001,0x00000001
+HKLM,%SetApoint%,	"EnableAreaSwitch",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"EnableTouchSensitivity",	0x00010001,0x00000001
+HKLM,%SetApoint%,	"SupportLanguage",		0x00010001,0x3ff77fff
+HKLM,%SetApoint%,	"GP_Series",			0x00010001,0x00000002
+HKLM,%SetApoint%,	"SP_PressMenuDisp",		0x00010001,0x00000000
+HKLM,%SetApoint%,	"OEM_ID",			0x00010001,0x00000001
+HKLM,%SetApoint%,	"Support_USB_Button_Swap",	0x00010001,0x00000001
+HKLM,%SetApoint%,	"HidFindLaunchSW",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"TouchPadOnOffContext",		0x00010001,0x00000000
+HKLM,%SetApoint%,	"TouchPadOnOffLocked",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"ApMsgFwd_Flags", 		0x00010001,0x000002FF
+HKLM,%SetApoint%,	"ID_Emulate_Switch",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"Target_ID",			0x00010001,0x00500273
+HKLM,%SetApoint%,	"EmulateDeviceType",		0x00010001,0xA00114AD
+HKLM,%SetApoint%,	"EmulateDeviceID",		0x00010001,0x000A0273
+HKLM,%SetApoint%,	"UseCustomGUI", 		0x00010001,0x00000001
+HKLM,%SetApoint%,	"CustomGUI_Name",		0x00020000,"DellTouchpad.exe"
+HKLM,%SetApoint%,	"Lang_CH_HongKong",		0x00010001,0x00000003
+HKLM,%SetApoint%,	"Lang_CH_Macau",		0x00010001,0x00000003
+HKLM,%SetApoint%,	"Lang_CH_Singapore",		0x00010001,0x00000002
+HKLM,%SetApoint%,	"Lang_PO_Portugal", 		0x00010001,0x00000003
+HKLM,%SetApoint%,	"SkinType", 			0x00010001,0x00000004
+HKLM,%SetApoint%,	"UseBtnMessageVersion", 	0x00010001,0x00000600
+HKLM,%SetApoint%,	"CursorChangeType", 		0x00010001,0x02211322
+HKLM,%SetApoint%,	"DisableForceOffClickLock",	0x00010001,0x00000001
+HKLM,%SetApoint%,	"SupportMultiGesture",		0x00010001,0x00000000
+HKLM,%SetApoint%,	"ShowMultiGestureUI",		0x00010001,0x00000000
+HKLM,%SetApoint%,	"CirqueLogicEnable",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"TPForceEnableAfterEvent",	0x00010001,0x00000166
+HKLM,%SetApoint%,	"TouchPadDisableFunc",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"TPStatusSetFunc",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"CustomTPSyncFlags",		0x00010001,0x00000004
+HKLM,%SetApoint%,	"DisableOnOffCmdIfPS2mouse",	0x00010001,0x00000001
+HKLM,%SetApoint%,	"Wait_Initialization",		0x00010001,0x00000003
+HKLM,%SetApoint%,	"Wait_Time_Initialization",	0x00010001,0x000003E8
+HKLM,%SetApoint%,	"TPStatusPriority",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"SupportInertialScroll",	0x00010001,0x00000001
+HKLM,%SetApoint%,	"CursorBugFixMethod",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"SupportSendTapBtnMes",		0x00010001,0x00000002
+HKLM,%SetApoint%,	"InvertScrollShow", 		0x00010001,0x00000001
+HKLM,%SetApoint%,	"UseOriginalReverseScrollDirection",0x00010001,0x00000001
+; for ApHidService
+HKLM,%SetApoint%,	"ApHidServiceSupport", 		0x00010001,0x00000001
+HKLM,%SetApoint%,	"ApHidServiceTPDisableMethod", 	0x00010001,0x00000000
+HKLM,%SetApoint%,	"ApHidServiceLogonSpec", 	0x00010001,0x00000000
+
+;// Set HKLM\Software\Alps\Apoint\SelectDevice
+HKLM,%SetSelectDev%,	"SelectDevice",			0x00010001,0x0000003F
+
+;// Set HKLM\Software\Alps\Apoint\Button
+HKLM,%SetButton%,	"ButtonFunction",		0x00010001,0x0054e500
+HKLM,%SetButton%,	"DoubleClkSpeed",		0x00010001,0x00000008
+HKLM,%SetButton%,	"EnableWheel",			0x00010001,0x00000021
+HKLM,%SetButton%,	"USB_Button_Swap",		0x00010001,0x00000000
+HKLM,%SetButton%,	"AppReg1",			0x00000000,""
+HKLM,%SetButton%,	"AppReg2",			0x00000000,""
+HKLM,%SetButton%,	"AppReg3",			0x00000000,""
+HKLM,%SetButton%,	"AppReg8",			0x00000000,""
+HKLM,%SetButton%,	"AppRegSP1",			0x00000000,""
+HKLM,%SetButton%,	"AppRegSP2",			0x00000000,""
+HKLM,%SetButton%,	"AppRegSP3",			0x00000000,""
+HKLM,%SetButton%,	"AppRegSP8",			0x00000000,""
+HKLM,%SetButton%,	"Scroll_HV",			0x00010001,0x00000003
+HKLM,%SetButton%,	"ButtonFunction0",		0x00010001,0x00000005
+HKLM,%SetButton%,	"ButtonFunction1",		0x00010001,0x00000005
+HKLM,%SetButton%,	"ButtonFunction2",		0x00010001,0x00000004
+HKLM,%SetButton%,	"ButtonFunction3",		0x00010001,0x0000000e
+HKLM,%SetButton%,	"ButtonFunction8",		0x00010001,0x0000000e
+HKLM,%SetButton%,	"SPFunction0",			0x00010001,0x00000005
+HKLM,%SetButton%,	"SPFunction1",			0x00010001,0x00000005
+HKLM,%SetButton%,	"SPFunction2",			0x00010001,0x00000004
+HKLM,%SetButton%,	"SPFunction3",			0x00010001,0x00000010
+HKLM,%SetButton%,	"SPFunction8",			0x00010001,0x0000000e
+HKLM,%SetButton%,	"MouFunction1",			0x00010001,0x00000005
+HKLM,%SetButton%,	"MouFunction2",			0x00010001,0x00000004
+HKLM,%SetButton%,	"MouFunction3",			0x00010001,0x0000000e
+HKLM,%SetButton%,	"InertialScrollSetting",	0x00010001,0x00000006
+
+;// Set HKLM\Software\Alps\Apoint\Orientation
+HKLM,%SetOrientation%,	"Rotation",			0x00010001,0x00000000
+
+;// Set HKLM\Software\Alps\Apoint\Tapping
+HKLM,%SetTapping%,	"Tapping",			0x00010001,0x00000001
+HKLM,%SetTapping%,	"TapSettings",			0x00010001,0x00000009
+HKLM,%SetTapping%,	"TapTyping",			0x00010001,0x00000001
+HKLM,%SetTapping%,	"TapTypingDelay",		0x00010001,0x00000002
+HKLM,%SetTapping%,	"AutoRelease",			0x00010001,0x00000001
+HKLM,%SetTapping%,	"TouchSensitivity",		0x00010001,0x00000008
+HKLM,%SetTapping%,	"TypingDetect",			0x00010001,0x00000002
+HKLM,%SetTapping%,	"TypingInhibit",		0x00010001,0x0000006f
+HKLM,%SetTapping%,	"EnableCustomTapOffTimer",	0x00010001,0x00000001
+HKLM,%SetTapping%,	"CustomTapOffTimer",		0x00000000,"200,350,500,1500,2500"
+
+;// Set HKLM\Software\Alps\Apoint\Gesture
+HKLM,%SetGesture%,	"EasyX",			0x00010001,0x00000000
+HKLM,%SetGesture%,	"EnableFB",			0x00010001,0x00000000
+HKLM,%SetGesture%,	"LockAreaSet",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"CornerTapOffsetX",		0x00010001,0x0000004b
+HKLM,%SetGesture%,	"CornerTapOffsetY",		0x00010001,0x0000004b
+HKLM,%SetGesture%,	"PadScrollLines",		0,3
+HKLM,%SetGesture%,	"AppReg0",			0x00000000,""
+HKLM,%SetGesture%,	"AppReg1",			0x00000000,""
+HKLM,%SetGesture%,	"AppReg2",			0x00000000,""
+HKLM,%SetGesture%,	"AppReg3",			0x00000000,""
+HKLM,%SetGesture%,	"ShowCorner",			0x00010001,0x01100110
+HKLM,%SetGesture%,	"ScrollSettingType",		0x00010001,0x00000003
+HKLM,%SetGesture%,	"CoverSetting",			0x00010001,0x00000002
+HKLM,%SetGesture%,	"PanSupport",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"PinchSupport",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"TwistSupport",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"CoverSupport",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"PanFunc",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"PinchFunc",			0x00010001,0x00000002
+HKLM,%SetGesture%,	"TwistFunc",			0x00010001,0x00000003
+HKLM,%SetGesture%,	"CoverFunc",			0x00010001,0x00000004
+HKLM,%SetGesture%,	"PanShow",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"PinchShow",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"TwistShow",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"CoverShow",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"FingerSizeShow",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"PalmCheck",			0x00010001,0x00000003
+HKLM,%SetGesture%,	"EnableMultiGesture",		0x00010001,0x00000000
+HKLM,%SetGesture%,	"AdjScroll_Desktop",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"AdjScrollSpeed_FileExploler",	0x00010001,0x00000003
+HKLM,%SetGesture%,	"BlankScreenType",		0x00010001,0x00000001
+
+;// Set HKLM\Software\Alps\Stick
+HKLM,%SetStick%,	"SPSpeed",			0x00010001,0x00000050
+HKLM,%SetStick%,	"SPTapping",			0x00010001,0x00000000
+HKLM,%SetStick%,	"SPTapSettings",		0x00010001,0x00000001
+HKLM,%SetStick%,	"SPTapTyping",			0x00010001,0x00000001
+HKLM,%SetStick%,	"SPTapTypingDelay",		0x00010001,0x00000002
+HKLM,%SetStick%,	"SPTypingInhibit",		0x00010001,0x00000007
+HKLM,%SetStick%,	"EnableSPCustomTapOffTimer",	0x00010001,0x00000001
+HKLM,%SetStick%,	"SPCustomTapOffTimer",		0x00000000,"200,350,500,1500,2500"
+HKLM,%SetStick%,	"SPFunction",			0x00010001,0x0054a500
+HKLM,%SetStick%,	"SPScroll",			0x00010001,0x00000002 ; B0:SP Scroll Bit / B1:1 Only
+HKLM,%SetStick%,	"SPScrollLines",		0,2
+HKLM,%SetStick%,	"SP_PressSelect",		0x00010001,0x00000000
+HKLM,%SetStick%,	"SpTypingSound",		0x00000000,""
+HKLM,%SetStick%,	"SPScrollThreshold",		0x00010001,0x00000096
+HKLM,%SetStick%,	"SPScrollDirecLock",		0x00010001,0x00000001
+
+;// Set HKLM\Software\Alps\Other
+HKLM,%SetOther%,	"TrayIcon",			0x00020000,TRUE
+HKLM,%SetOther%,	"UseSound",			0x00010001,0x00000000
+HKLM,%SetOther%,	"UseIMECap",			0x00010001,0x00000000
+HKLM,%SetOther%,	"EnableTPOn_LogOn",		0x00010001,0x00000001
+HKLM,%SetOther%,	"TrayIconAnimate",		0x00010001,0x00010003
+
+;// Set HKLM\Software\Alps\USBMouse
+HKLM,%SetUSBMouse%,	"USBMouse",			0x00010001,0x00000000
+HKLM,%SetUSBMouse%,	"ShowBalloon",			0x00010001,0x00055555
+
+;// Set HKLM\Software\Alps\USBMouse\Exceptions (; VVVVPPPP (VVVV=VID,PPPP=PID))
+HKLM,%SetUSBMouseExcept%, "USB_0",			0x00010001,0x0A5C4503	; for BT355
+HKLM,%SetUSBMouseExcept%, "USB_1",			0x00010001,0x413C8103	; for BT350
+HKLM,%SetUSBMouseExcept%, "USB_2",			0x00010001,0x413C8126	; for Entwood/Fangron 355
+HKLM,%SetUSBMouseExcept%, "USB_3",			0x00010001,0x413C8127	; for Entwood/Fangron 355
+HKLM,%SetUSBMouseExcept%, "USB_4",			0x00010001,0x413C8140	; for Riveria/Suncoast 360
+HKLM,%SetUSBMouseExcept%, "USB_5",			0x00010001,0x413C8145	; for Redrock 400
+HKLM,%SetUSBMouseExcept%, "USB_6",			0x00010001,0x413C8146	; for Redrock 400
+HKLM,%SetUSBMouseExcept%, "USB_7",			0x00010001,0x413C8154	; for Hardrock 410
+HKLM,%SetUSBMouseExcept%, "USB_8",			0x00010001,0x413C8158	; for Littlerock 370
+HKLM,%SetUSBMouseExcept%, "USB_9",			0x00010001,0x413C8162	; for Littlestone 365
+HKLM,%SetUSBMouseExcept%, "USB_10",			0x00010001,0x413C8167	; for Littlestone 365
+HKLM,%SetUSBMouseExcept%, "USB_11",			0x00010001,0x413C8168	; for Littlerock 370
+HKLM,%SetUSBMouseExcept%, "USB_12",			0x00010001,0x413C8169	; for Hardrock 410
+HKLM,%SetUSBMouseExcept%, "USB_13",			0x00010001,0x413C8151	; for Hardrock 410
+HKLM,%SetUSBMouseExcept%, "USB_14",			0x00010001,0x413C8155	; for Littlerock 370
+HKLM,%SetUSBMouseExcept%, "USB_15",			0x00010001,0x413C8159	; for Littlestone 365
+HKLM,%SetUSBMouseExcept%, "USB_16",			0x00010001,0x413C8160	; for DELL Wireless 365 Bluetooth Module
+HKLM,%SetUSBMouseExcept%, "USB_17",			0x00010001,0x04B4E124	; for DELL XPS12
+
+;// Set HKLM\Software\Alps\Exceptions
+HKLM,%SetExceptions%\6.2,"S>>Windows.UI.Core.CoreWindow^WA|Microsoft.BingMaps\map.exe", 0x00010001,0x20002000
+HKLM,%SetExceptions%\6.2,"S>>Windows.UI.Core.CoreWindow^WA|Microsoft.Reader\glcnd.exe", 0x00010001,0x20002000
+HKLM,%SetExceptions%\6.2,"S>>CabinetWClass",		0x00010001,0x00000008
+HKLM,%SetExceptions%\6.2,"S>>Notepad",			0x00010001,0x00000008
+HKLM,%SetExceptions%\6.2,"S>>WordPadClass",		0x00010001,0x00000008
+HKLM,%SetExceptions%\6.2,"S>>XLMAIN",			0x00010001,0x0000001C
+HKLM,%SetExceptions%\6.2,"S>>MozillaWindowClass",	0x00010001,0x000A000C
+HKLM,%SetExceptions%\6.2,"S>>Chrome_WidgetWin_1",	0x00010001,0x0000000A
+HKLM,%SetExceptions%\6.2,"S>>OpusApp",			0x00010001,0x0000000C
+HKLM,%SetExceptions%\6.2,"S>>PPTFrameClass",		0x00010001,0x0000003C
+HKLM,%SetExceptions%\6.2,"S>>AcrobatSDIWindow",		0x00010001,0x0000001B
+HKLM,%SetExceptions%\6.2,"S>>MSWinPub",			0x00010001,0x0000003C
+HKLM,%SetExceptions%\6.2,"S>>MSPaintApp",		0x00010001,0x0000000C
+HKLM,%SetExceptions%\6.2,"S>>Framework::CFrame",	0x00010001,0x0000000B
+HKLM,%SetExceptions%\6.2,"S>>CLViewServer12",		0x00010001,0x0000000C
+
+;// Set HKLM\Software\Alps\Apoint\InertialMovemnet
+HKLM,%SetIM%,		"EnableInertialMovement",	0x00010001,0x00000001
+HKLM,%SetIM%,		"EnableOnlyWhenDrag",		0x00010001,0x00000001
+HKLM,%SetIM%,		"Horizontal_Left",		0x00010001,0x00000040
+HKLM,%SetIM%,		"Horizontal_Right",		0x00010001,0x00000040
+HKLM,%SetIM%,		"Vertical_Top",			0x00010001,0x00000040
+HKLM,%SetIM%,		"Vertical_Bottom",		0x00010001,0x00000040
+HKLM,%SetIM%,		"IM_Delta",			0x00010001,0x00000001
+HKLM,%SetIM%,		"IM_DeltaAlpha",		0x00010001,0x0000000F
+HKLM,%SetIM%,		"IM_Period",			0x00010001,0x0000000A
+HKLM,%SetIM%,		"IM_Speed",			0x00010001,0x00000003
+HKLM,%SetIM%,		"IM_SuppressMove",		0x00010001,0x00000000
+
+;// Set HKLM\Software\Alps\Apoint\EdgeAction
+HKLM,%SetEdgeAction%,	"SupportEdgeAction",		0x00010001,0x00000000
+HKLM,%SetEdgeAction%,	"EnableEdgeAction_L",		0x00010001,0x00000000
+HKLM,%SetEdgeAction%,	"EnableEdgeAction_R",		0x00010001,0x00000000
+HKLM,%SetEdgeAction%,	"EnableEdgeAction_U",		0x00010001,0x00000000
+HKLM,%SetEdgeAction%,	"EnableEdgeAction_UL",		0x00010001,0x00000000
+HKLM,%SetEdgeAction%,	"MoveCursorEA_R",		0x00010001,0x00000000
+HKLM,%SetEdgeAction%,	"MoveCursorEA_L",		0x00010001,0x00000000
+HKLM,%SetEdgeAction%,	"StopCursorEA_RT",		0x00010001,0x00000000
+
+;// Set HKLM\Software\Alps\Apoint\Params\Default
+HKLM,%SetParamsDef%,	"MouseSensitivity_2K",		0x00010001,10
+HKLM,%SetParamsDef%,	"MouseSpeed_2K",		0x00010001,1
+HKLM,%SetParamsDef%,	"MouseThreshold1_2K",		0x00010001,7
+HKLM,%SetParamsDef%,	"MouseThreshold2_2K",		0x00010001,0
+HKLM,%SetParamsDef%,	"MouseSensitivity_XP",		0x00010001,10
+HKLM,%SetParamsDef%,	"MouseSpeed_XP",		0x00010001,1
+HKLM,%SetParamsDef%,	"MouseThreshold1_XP",		0x00010001,6
+HKLM,%SetParamsDef%,	"MouseThreshold2_XP",		0x00010001,10
+HKLM,%SetParamsDef%,	"TrayIcon",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"SelectDevice",			0x00010001,0x0000003F
+HKLM,%SetParamsDef%,	"USBMouse",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"ButtonFunction",		0x00010001,0x0054e500
+HKLM,%SetParamsDef%,	"DoubleClkSpeed",		0x00010001,0x00000008
+HKLM,%SetParamsDef%,	"USB_Button_Swap",		0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"CoverSetting",			0x00010001,0x00000002
+HKLM,%SetParamsDef%,	"TouchSensitivity",		0x00010001,0x00000008
+HKLM,%SetParamsDef%,	"Tapping",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"TapSettings",			0x00010001,0x00000009
+HKLM,%SetParamsDef%,	"TapTyping",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"TapTypingDelay",		0x00010001,0x00000002
+HKLM,%SetParamsDef%,	"SPScroll",			0x00010001,0x00000002
+HKLM,%SetParamsDef%,	"SPSpeed",			0x00010001,0x00000050
+HKLM,%SetParamsDef%,	"SPTapping",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"SPTapSettings",		0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"SPTapTyping",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"SPTapTypingDelay",		0x00010001,0x00000002
+HKLM,%SetParamsDef%,	"EnableFB",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"EnableWheel",			0x00010001,0x00000021
+HKLM,%SetParamsDef%,	"CornerTapOffsetX",		0x00010001,0x0000004b
+HKLM,%SetParamsDef%,	"CornerTapOffsetY",		0x00010001,0x0000004b
+HKLM,%SetParamsDef%,	"ScrollWidth_V_Narrow",		0x00010001,0x00000032
+HKLM,%SetParamsDef%,	"ScrollWidth_H_Narrow",		0x00010001,0x00000032
+HKLM,%SetParamsDef%,	"ScrollWidth_V_Normal",		0x00010001,0x0000004b
+HKLM,%SetParamsDef%,	"ScrollWidth_H_Normal",		0x00010001,0x0000004b
+HKLM,%SetParamsDef%,	"ScrollWidth_V_Wide",		0x00010001,0x00000064
+HKLM,%SetParamsDef%,	"ScrollWidth_H_Wide",		0x00010001,0x00000064
+HKLM,%SetParamsDef%,	"PadScrollLines",		0x00010001,0x00000003
+HKLM,%SetParamsDef%,	"DoubleClickSpeed",		0x00010001,0x00000226
+HKLM,%SetParamsDef%,	"ButtonFunction0",		0x00010001,0x00000005
+HKLM,%SetParamsDef%,	"ButtonFunction1",		0x00010001,0x00000005
+HKLM,%SetParamsDef%,	"ButtonFunction2",		0x00010001,0x00000004
+HKLM,%SetParamsDef%,	"ButtonFunction3",		0x00010001,0x0000000e
+HKLM,%SetParamsDef%,	"ButtonFunction8",		0x00010001,0x0000000e
+HKLM,%SetParamsDef%,	"SPFunction0",			0x00010001,0x00000005
+HKLM,%SetParamsDef%,	"SPFunction1",			0x00010001,0x00000005
+HKLM,%SetParamsDef%,	"SPFunction2",			0x00010001,0x00000004
+HKLM,%SetParamsDef%,	"SPFunction3",			0x00010001,0x00000010
+HKLM,%SetParamsDef%,	"SPFunction8",			0x00010001,0x0000000e
+HKLM,%SetParamsDef%,	"MouFunction1",			0x00010001,0x00000005
+HKLM,%SetParamsDef%,	"MouFunction2",			0x00010001,0x00000004
+HKLM,%SetParamsDef%,	"MouFunction3",			0x00010001,0x0000000e
+HKLM,%SetParamsDef%,	"EnableInertialMovement",	0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnableEdgeAction_L",		0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnableEdgeAction_R",		0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnableEdgeAction_U",		0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnableEdgeAction_UL",		0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"EnableMultiGesture",		0x00010001,0x00000000
+
+;for Sysprep (needs to add values which does not exist)
+HKLM,%SetApoint%,	"OnOffHotkeyInfo",		0x00010001,0x00000000
+HKLM,%SetApoint%,	"HideScrollandZoom", 		0x00010001,0x00000000
+HKLM,%SetApoint%,	"InvertScrollFlag",		0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"InvertScrollFlag",		0x00010001,0x00000000
+HKLM,%SetGesture%, 	"2TapSupport", 			0x00010001,0x00000000
+HKLM,%SetGesture%, 	"Enable2Tap", 			0x00010001,0x00000000
+HKLM,%SetParamsDef%, 	"Enable2Tap", 			0x00010001,0x00000000
+HKLM,%SetGesture%, 	"2TapFunc", 			0x00010001,0x00000000
+HKLM,%SetParamsDef%, 	"2TapFunc", 			0x00010001,0x00000000
+HKLM,%SetEdgeAction%,	"EdgeActionShow",		0x00010001,0x0000000D
+HKLM,%SetGesture%,	"4FlickSupport",		0x00010001,0x00000000
+HKLM,%SetGesture%,	"4FlickShow",			0x00010001,0x00000000
+HKLM,%SetGesture%,	"4FlickHorFunc",		0x00010001,0x00000000
+HKLM,%SetGesture%,	"4FlickVerFunc",		0x00010001,0x00000000
+HKLM,%SetGesture%,	"4FlickVerCustom",		0x00010001,0x00000000
+HKLM,%SetGesture%,	"Enable4Flick",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"Enable4Flick",			0x00010001,0x00000000
+HKLM,%SetGesture%,	"4PressSupport",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"4PressShow",			0x00010001,0x00000003
+HKLM,%SetGesture%,	"4PressFunc",			0x00010001,0x0000000B
+HKLM,%SetParamsDef%,	"4PressFunc",			0x00010001,0x0000000B
+HKLM,%SetGesture%,	"4PressSetting",		0x00010001,0x000000FF
+HKLM,%SetGesture%,	"Enable4Press",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"Enable4Press",			0x00010001,0x00000000
+HKLM,%SetGesture%, 	"PinchSetting",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"PinchSetting",			0x00010001,0x00000001
+HKLM,%SetGesture%, 	"InertialScr_V2_Speed_V",	0x00010001,0x00020001
+HKLM,%SetGesture%, 	"InertialScr_V2_Speed_H",	0x00010001,0x00020001
+HKLM,%SetGesture%,	"AdjScroll_Metro",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"AdjScrollSpeed_Photos",	0x00010001,0x00000003
+HKLM,%SetOther%,	"EnableZigZag",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"EnableZigZag",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"TouchSensitivity_DLL040A_LowZ",0x00010001,0x00000008
+HKLM,%SetApoint%,	"ApMsgFwd_HookFlags",		0x00010001,0x00000000
+HKLM,%SetApoint%,	"ApMsgWaitProcEnableFlg",	0x00010001,0x00000000
+HKLM,%SetApoint%,	"TouchPadDisableFlags",		0x00010001,0x00000000
+HKLM,%SetApoint%,	"TouchPadOnOffOption",		0x00010001,0x00000000
+HKLM,%SetOther%,	"ShowBalloonTPStatus",		0x00010001,0x00000000
+HKLM,%SetOther%,	"DualDevOnOff4Status",		0x00010001,0x00000000
+
+;// Set Parameters (Drivers)
+HKR,,			"DoubleClkSpeed",		0x00010001,0x00000008
+HKR,,			"Tapping",			0x00010001,0x00000001
+HKR,,			"TapSettings",			0x00010001,0x00000009
+HKR,,			"Controls",			0x00010001,0x00000003
+HKR,,			"Swap",				0x00010001,0x00000000
+HKR,,			"M_Assign",			0x00010001,0x00000003
+HKR,,			"Acceleration",			0x00010001,0x00000004
+HKR,,			"HorizSensitivity",		0x00010001,0x00000020
+HKR,,			"VertSensitivity",		0x00010001,0x00000020
+HKR,,			"Rotation",			0x00010001,0x00000000
+HKR,,			"EasyScroll",			0x00010001,0x7A980014
+HKR,,			"AutoTime",			0x00010001,0x000001F4
+HKR,,			"LockAreaSet",			0x00010001,0x00000001
+HKR,,			"XOffset",			0x00010001,0x00000080
+HKR,,			"YOffset",			0x00010001,0x00000080
+HKR,,			"XResolution",			0x00010001,0x00000420
+HKR,,			"YResolution",			0x00010001,0x00000320
+HKR,,			"EasyX",			0x00010001,0x00000000
+HKR,,			"CornerTapOffsetX",		0x00010001,0x0000004b
+HKR,,			"CornerTapOffsetY",		0x00010001,0x0000004b
+HKR,,			"EnableWheel",			0x00010001,0x00000003
+HKR,,			"RightBtnEmulation",		0x00010001,0x00000000
+HKR,,			"ButtonFunction",		0x00010001,0x0054e500
+HKR,,			"MouseSynchIn100nsForMultiDevice",0x00010001,0x00000000
+HKR,,			"LR_Timelag",			0x00010001,0x00000000
+HKR,,			"LR_Timelag_Cond",		0x00010001,0x00000001
+HKR,,			"TapTyping",			0x00010001,0x00000001
+HKR,,			"TapTypingDelay",		0x00010001,0x00000002
+HKR,,			"AutoRelease",			0x00010001,0x00000001
+HKR,,			"EnableFB",			0x00010001,0x00000000
+HKR,,			"SelectDevice",			0x00010001,0x0000003F
+HKR,,			"SPTapTyping",			0x00010001,0x00000001
+HKR,,			"SPTapTypingDelay",		0x00010001,0x00000002
+HKR,,			"SPTapping",			0x00010001,0x00000001
+HKR,,			"SPTapSettings",		0x00010001,0x00000001
+HKR,,			"SPFunction",			0x00010001,0x0054a500
+HKR,,			"SPScroll",			0x00010001,0x00000002
+HKR,,			"ScrollCancelThreshold_X",	0x00010001,0x00000000
+HKR,,			"ScrollCancelThreshold_Y",	0x00010001,0x00000000
+HKR,,			"ScrollCancelAngle_X",		0x00010001,0x0000001E
+HKR,,			"ScrollCancelAngle_Y",		0x00010001,0x0000001E
+HKR,,			"ScrollDecideThreshold_X",	0x00010001,0x00000023
+HKR,,			"ScrollDecideThreshold_Y",	0x00010001,0x00000023
+HKR,,			"PM_Resume",			0x00010001,0x00000000
+HKR,,			"UseIMECap",			0x00010001,0x00000000
+HKR,,			"OldSetPostMsgInfo",		0x00010001,0x00000001
+HKR,,			"EnableAreaSwitch",		0x00010001,0x00000001
+HKR,,			"EnableTouchSensitivity",	0x00010001,0x00000001
+HKR,,			"ZThresholdMode",		0x00010001,0x00000003
+HKR,,			"EnableRawMode",		0x00010001,0x00000001
+HKR,,			"RecoveryBIODP_Enable",		0x00010001,0x00000001
+HKR,,			"SP_Raw_Usability",		0x00000001,0x01,0x00,0x02,0x00,0x01,0x00
+HKR,,			"SP_ReviseBallisticCurve_Enable",0x00010001,0x00000001
+HKR,,			"SP_ReviseBallisticCurve_Pram_1",0x00010001,0x07000078
+HKR,,			"SP_ReviseBallisticCurve_Pram_2",0x00010001,0x13000021
+HKR,,			"SP_ReviseBallisticCurve_Pram_3",0x00010001,0xFF000021
+HKR,,			"SP_BrakeCursor_Enable",	0x00010001,0x00000001
+HKR,,			"SP_BrakeCursor_DeltaTime",	0x00010001,0x00000020
+HKR,,			"SP_BrakeCursor_Buffer_N",	0x00010001,0x00000003
+HKR,,			"SP_BrakeCursor_Threshold_Min",	0x00010001,0x00000003
+HKR,,			"SP_BrakeCursor_Threshold_Max",	0x00010001,0x00000020
+HKR,,			"SP_BrakeCursor_Percent",	0x00010001,0x0000000D
+HKR,,			"SP_NoSpeedAccThreshold",	0x00010001,0x00000001
+HKR,,			"DataModeSwitchTime",		0x00010001,0x00000064
+HKR,,			"GP_Raw_CountToLeave",		0x00010001,0x00000001
+HKR,,			"SP_Raw_AccCurve_Type",		0x00010001,0x00000000
+HKR,,			"SP_Raw_ReviseCurve_Enable",	0x00010001,0x00000001
+HKR,,			"SP_Raw_ReviseCurve_Param_1",	0x00010001,0x00000011
+HKR,,			"SP_Raw_ReviseCurve_Param_2",	0x00010001,0x000001F4
+HKR,,			"SP_Raw_EnableButtonOR",	0x00010001,0x00000001
+HKR,,			"SP_Raw_ReviseLinear_Type",	0x00010001,0x00000001
+HKR,,			"SP_Raw_ReviseLinear_AppSpeed",	0x00010001,0x0000000A
+HKR,,			"SP_Raw_BrakeStrength",		0x00010001,0x0000003C
+HKR,,			"SP_Raw_BrakeFactor_MinSpeed",	0x00010001,0x00000019
+HKR,,			"SP_Raw_BrakeFactor_AppSpeed",	0x00010001,0x00000012
+HKR,,			"CheckButtonAfterLeave",	0x00010001,0x14001400
+HKR,,			"SendCmdBeforeReset",		0x00010001,0x00000001
+HKR,,			"WatchDog_Flag",		0x00010001,0x00000001
+HKR,,			"WatchDog_Timeout",		0x00010001,0x00001388
+HKR,,			"ChangeAccelCurve_Enable",	0x00010001,0x00000001
+HKR,,			"SendCmdWhenSelectDevice",	0x00010001,0x00000001
+HKR,,			"ISDR_Enable",			0x00010001,0x00000001
+HKR,,			"ResendCmdSet",			0x00010001,0x00000001
+HKR,,			"TouchSensitivity",		0x00010001,0x00000008
+HKR,,			"EnablePadScrollHV",		0x00010001,0x00000003
+HKR,,			"SP_PressSelect",		0x00010001,0x00000000
+HKR,,			"GP_ScrollThreshold_V",		0x00010001,0x00000032
+HKR,,			"GP_ScrollThreshold_H",		0x00010001,0x00000032
+HKR,,			"OfficeScrollSrc",		0x00010001,0x00000001
+HKR,,			"UseVariableAccTable",		0x00010001,0x00000001
+HKR,,			"i8042_WatchDog_Flag",		0x00010001,0x00000000
+HKR,,			"DisablePadOperation",		0x00010001,0x00000000
+HKR,,			"CursorSpeedScale_Enable",	0x00010001,0x00000001
+HKR,,			"PegasusMonitorModeFlags",	0x00010001,0x00000009
+HKR,,			"InhibitResetForDS5",		0x00010001,0x00000001
+HKR,,			"UseMercuryRawAcc",		0x00010001,0x00000001
+HKR,,			"ZAdjust_Enable",		0x00010001,0x00000001
+HKR,,			"ZAdjust_Area",			0x00010001,0x000000a8
+HKR,,			"ZAdjust_ZThresh",		0x00010001,0x0000001e
+HKR,,			"ZAdjust_Value",		0x00010001,0x0000000f
+HKR,,			"DriverFunctionFlag",		0x00010001,0x00000003
+HKR,,			"MT_Pan_enable",   		0x00010001,0x00000001
+HKR,,			"MT_Pinch_enable",   		0x00010001,0x00000001
+HKR,,			"MT_Twist_enable",   		0x00010001,0x00000001
+HKR,,			"MT_Cover_enable",   		0x00010001,0x00000001
+HKR,,			"MT_Flick_enable",   		0x00010001,0x00000000
+HKR,,			"MT_PalmCheck",			0x00010001,0x00000003
+HKR,,			"MaxDistanceForDrag",  		0x00010001,0x000000B4
+HKR,,			"CursorSpeedScale_GP",  	0x00010001,0x00000096
+HKR,,			"MT_CirqueLogicEnable",  	0x00010001,0x00000001
+HKR,,			"PinnacleAG_X_wide_thresh",	0x00010001,0x008A0003
+HKR,,			"PinnacleAG_Z_thresh_cnst",	0x00010001,0x008A0026
+HKR,,			"RecalIdleTimeout",		0x00010001,0x00000BB8
+HKR,,			"TapReenableDist",		0x00010001,0x00350035
+HKR,,			"TapReenable_Pattern",		0x00010001,0x00000003
+HKR,,			"PinnacleAG_source_priority",	0x00010001,0x00000000
+HKR,,			"NumberOfRetrySPInit",		0x00010001,0x00000005
+HKR,,			"ReInitForInvalidDataErr",	0x00010001,0x00000001
+HKR,,			"DisableTouchPad_Type",		0x00010001,0x00000001
+HKR,,			"MT_RecogStopDist",		0x00010001,0x02800380
+HKR,,			"MT_Pivot_enough_cnt",		0x00010001,0x00000001
+HKR,,			"ExtendedLogicFlag",		0x00010001,0x00FFFFDF
+HKR,,			"EnoughZCntForTap",		0x00010001,0x00000002
+HKR,,			"InhibitBtnTap_Setting",	0x00010001,0x00000020
+HKR,,			"Check_D3State_On_Command",	0x00010001,0x00000001
+HKR,,			"SendF5CmdInstFFCmd",		0x00010001,0x00000002
+HKR,,			"MiscompensationCheck_Enable",	0x00010001,0x00000060
+HKR,,			"mask_at_lid_close",		0x00010001,0x00000007
+HKR,,			"KBCSyncSolution",		0x00010001,0x00000020
+HKR,,			"Notify_EXBtnMes",		0x00010001,0x00000001
+
+HKR,,			"ISDR_ResolXMin",		0x00010001,0x00000320 
+HKR,,			"ISDR_AspectRatioMin",		0x00010001,0x00000082 
+HKR,,			"ISDR_AspectRatioMax",		0x00010001,0x000000B4 
+HKR,,			"EnableJumpFilter",		0x00010001,0x00000001
+
+HKR,%SetAGPlus%,	"CursorSpeedScale_GP",  	0x00010001,0x00000064
+
+
+[PAG1p4_Multi.AddReg]
+HKLM,%SetGesture%,	"FingerSizeShow",		0x00010001,0x00000000
+HKR,,			"JF_InitThreshold",		0x00010001,0x00004E20
+HKR,,			"JF_SustainLevel",		0x00010001,0x000000C8
+HKR,,			"PinnacleAG_PacketSize",	0x00010001,0x00000009
+HKR,,			"DrumFilter",			0x00010001,0x016801E0
+HKR,,			"PinnacleAG_X_wide_thresh",	0x00010001,0x008A0004
+HKR,%SetAGPlus%,	"PinnacleAG_Y_NERD_thresh",	0x00010001,0x00040003
+HKR,%SetAGPlus%,	"PinnacleAG_enable_filter",	0x00010001,0x00000000
+HKR,%SetAGPlus%,	"RawModeFilterLevel",  		0x00010001,0xFFFF6518
+HKR,%SetAGPlus%,	"MT_Cover_num_nodes",		0x00010001,0x000A000D
+HKR,%SetAGPlus%,	"MT_Cover_num_nodes_f",		0x00010001,0x000A000D
+HKR,%SetAGPlus%,	"MT_ReleaseCount",		0x00010001,0x00000002
+HKR,%SetAGPlus%,	"MT_MinMovementPost",		0x00010001,0x004B0064
+HKR,%SetAGPlus%,	"MT_Pan_init_move",		0x00010001,0x00410050
+HKR,%SetAGPlus%,	"EdgeAction_Angle_Top",		0x00010001,0x00000032
+HKR,%SetAGPlus%,	"EdgeAction_Angle_Left",	0x00010001,0x00000032
+HKR,%SetAGPlus%,	"EdgeAction_Angle_Right",	0x00010001,0x00000032
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Top",		0x00010001,0x00000028
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Left",	0x00010001,0x00000023
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Right",	0x00010001,0x00000028
+HKR,%SetAGPlus%,	"EdgeAction_Distance_Horiz",	0x00010001,0x0000001E
+HKR,%SetAGPlus%,	"EdgeAction_Distance_Vert",	0x00010001,0x00000014
+HKR,%SetAGPlus%,	"MT_2tap_num_required",		0x00010001,0x00000001
+
+[2F-ScrollLock.AddReg]
+HKLM,%SetGesture%,	"2FlickSupport",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"2FlickHorFunc",		0x00010001,0x00090009
+HKLM,%SetGesture%,	"2FlickVerFunc",		0x00010001,0x00090009
+HKLM,%SetGesture%,	"2FlickVerUSetting",		0x00020000,"3"
+HKLM,%SetGesture%,	"2FlickVerDSetting",		0x00020000,"3"
+HKLM,%SetGesture%,	"2FlickHorLSetting",		0x00020000,"3"
+HKLM,%SetGesture%,	"2FlickHorRSetting",		0x00020000,"3"
+HKLM,%SetParamsDef%,	"2FlickVerUSetting",		0x00020000,"3"
+HKLM,%SetParamsDef%,	"2FlickVerDSetting",		0x00020000,"3"
+HKLM,%SetParamsDef%,	"2FlickHorLSetting",		0x00020000,"3"
+HKLM,%SetParamsDef%,	"2FlickHorRSetting",		0x00020000,"3"
+HKR,%SetAGPlus%,	"MT_2Flick_enable",		0x00010001,0x00000003
+
+[3F-Gestures_E3_M12.AddReg]
+HKLM,%SetGesture%,	"3FlickSupport",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"3FlickShow",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"3FlickHorFunc",		0x00010001,0x00050006
+HKLM,%SetGesture%,	"3FlickVerFunc",		0x00010001,0x00030004
+HKLM,%SetGesture%,	"3FlickVerCustom",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"3PressSupport",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"3PressShow",			0x00010001,0x00000003
+HKLM,%SetGesture%,	"3PressFunc",			0x00010001,0x00000007
+HKLM,%SetGesture%,	"3PressSetting",		0x00010001,0x000000FF
+HKLM,%SetParamsDef%,	"3PressFunc",			0x00010001,0x00000007
+HKR,%SetAGPlus%,	"MT_3Flick_enable",		0x00010001,0x00000003
+HKR,%SetAGPlus%,	"MT_3Press_enable",		0x00010001,0x00000001
+HKR,%SetAGPlus%,	"MT_3Press_xy_max",		0x00010001,0x00000046
+HKR,%SetAGPlus%,	"MT_3Press_pos_change",		0x00010001,0x00460046
+HKR,%SetAGPlus%,	"MT_3Press_thresh_pcount",	0x00010001,0x0000001E
+HKR,%SetT3Std%,		"MT_3Press_xy_max",		0x00010001,0x00000046
+HKR,%SetT3Std%,		"MT_3Press_pos_change",		0x00010001,0x00460046
+HKR,%SetT3Std%,		"MT_3Press_thresh_pcount",	0x00010001,0x0000001E
+
+[TP_OnOff_HotKey.AddReg]
+HKR,,			"ForceClearTpStsEnable",	0x00010001,0x00000001
+HKLM,%SetApoint%,	"ApMsgFwd_HookFlags",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"ApMsgWaitProcEnableFlg",	0x00010001,0x00000001
+HKLM,%SetApoint%,	"OnOffHotkeyInfo",		0x00010001,0x0001E01E
+HKLM,%SetApoint%,	"TouchPadDisableFlags",		0x00010001,0x00000002
+HKLM,%SetApoint%,	"TouchPadOnOffOption",		0x00010001,0x00000001
+HKLM,%SetOther%,	"ShowBalloonTPStatus",		0x00010001,0x00010004
+HKLM,%SetOther%,	"DualDevOnOff4Status",		0x00010001,0x00000001
+
+[Advanced_Scroll.AddReg]
+HKLM,%SetApoint%,	"AdvancedScrollFunc",		0x00010001,0x00000003
+HKLM,%SetApoint%,	"InhibitGesWhenInrScr",		0x00010001,0x00000001
+HKLM,%SetButton%,	"InertialScrollSetting",	0x00010001,0x00000003
+HKLM,%SetButton%,	"InertialScrollInterval",	0x00010001,0x00000014
+HKLM,%SetButton%,	"InertialScrollLimit",		0x00010001,0x0000005a
+HKLM,%SetButton%,	"InertialScrollThreshold",	0x00010001,0x0000000A
+HKLM,%SetGesture%,	"AdvancedInertialScrThreshold",	0x00010001,0x00F00008
+HKLM,%SetGesture%,	"AdvancedInertialScrDecrement",	0x00010001,0x00000008
+HKLM,%SetGesture%,	"AdvancedInertialScrDeltaOffset",0x00010001,0x00000008
+HKLM,%SetGesture%,	"InertialScr_V2_DecDelta",	0x00010001,0x0000000A
+HKLM,%SetGesture%,	"2FlickSupport",		0x00010001,0x00000002
+HKLM,%SetGesture%,	"2FlickThreshold",		0x00010001,0x00000008
+HKLM,%SetGesture%,	"2FlickVerUSetting",		0x00020000,"1"
+HKLM,%SetGesture%,	"2FlickVerDSetting",		0x00020000,"1"
+HKLM,%SetGesture%,	"2FlickHorLSetting",		0x00020000,"2"
+HKLM,%SetGesture%,	"2FlickHorRSetting",		0x00020000,"2"
+HKLM,%SetParamsDef%,	"2FlickVerUSetting",		0x00020000,"1"
+HKLM,%SetParamsDef%,	"2FlickVerDSetting",		0x00020000,"1"
+HKLM,%SetParamsDef%,	"2FlickHorLSetting",		0x00020000,"2"
+HKLM,%SetParamsDef%,	"2FlickHorRSetting",		0x00020000,"2"
+HKR,%SetAGPlus%,	"AdvancedGPScroll_Thresh",	0x00010001,0x000A000A
+HKR,%SetAGPlus%,	"AdvancedSPScroll_Thresh",	0x00010001,0x00000000
+HKR,%SetAGPlus%,	"MT_Pan_resolution",		0x00010001,0x00050005
+HKR,%SetAGPlus%,	"MT_Pan_init_move",		0x00010001,0x003C0050
+HKR,%SetAGPlus%,	"MT_2Flick_movement",		0x00010001,0x00200020
+HKR,%SetT3Std%,		"AdvancedGPScroll_Thresh",	0x00010001,0x000A000A
+HKR,%SetT3Std%,		"AdvancedSPScroll_Thresh",	0x00010001,0x00000000
+HKR,%SetT3Std%,		"MT_Pan_resolution",		0x00010001,0x00050005
+HKR,%SetT3Std%,		"MT_2Flick_movement",		0x00010001,0x00200020
+
+[MouFilter_Inst_Dell_E3_Default.AddReg]
+HKLM,%SetButton%,	"EnableWheel",			0x00010001,0x00000020
+HKLM,%SetGesture%,	"EnablePan",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"PanSetting",			0x00010001,0x00000005
+HKLM,%SetGesture%,	"EnablePinch",			0x00010001,0x00000000
+HKLM,%SetGesture%,	"Enable2Flick",			0x00010001,0x00000003
+HKLM,%SetGesture%,	"Enable3Flick",			0x00010001,0x00000000
+HKLM,%SetGesture%,	"Enable3Press",			0x00010001,0x00000000
+HKLM,%SetGesture%,	"EnableMultiGesture",		0x00010001,0x00000001
+HKLM,%SetOther%,	"ShowOSDStatus",		0x00010001,0x07D00001
+HKLM,%SetParamsDef%,	"EnableWheel",			0x00010001,0x00000020
+HKLM,%SetParamsDef%,	"EnablePan",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"PanSetting",			0x00010001,0x00000005
+HKLM,%SetParamsDef%,	"EnablePinch",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"Enable2Flick",			0x00010001,0x00000003
+HKLM,%SetParamsDef%,	"Enable3Flick",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"Enable3Press",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"EnableMultiGesture",		0x00010001,0x00000001
+HKR,,			"GP_Raw_Usability",		0x00000001,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0x00
+HKR,,			"MT_Cover_num_nodes",		0x00010001,0x00040006
+HKR,,			"PinnacleAG_Z_thresh_cnst",	0x00010001,0x008A002C
+HKR,,			"PinnacleAG_Z_thresh_coef",	0x00010001,0x008A0009
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_cnst",	0x00010001,0x009D002A
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_coef",	0x00010001,0x009D0006
+HKR,%SetAGPlus%,	"PinnacleAG_Use_AUX_as_SP_Button",0x00010001,0x00000001
+
+[MouFilter_Inst_Dell_E4_Default.AddReg]
+HKR,,			"SupportDevices",   		0x00010001,0x005FFFFF
+HKR,,			"PinnacleAG_Z_thresh_cnst",	0x00010001,0x0000000F
+HKR,,			"PinnacleAG_Z_thresh_coef",	0x00010001,0x00000004
+HKR,,			"Support_XPaint",   		0x00010001,0x00000001
+HKR,,			"GP_ScrollThreshold_V",		0x00010001,0x0000000F
+HKR,,			"GP_ScrollThreshold_H",		0x00010001,0x00000032
+HKR,,			"TouchSensitivity",		0x00010001,0x0000000A
+HKR,,			"MT_Pivot_enough_cnt",  	0x00010001,0x00000001
+HKR,,			"MT_Twist_enough_cnt",  	0x00010001,0x00000001
+HKR,,			"EdgeFilter_Setting",		0x00010001,0x00000003
+HKR,,			"EdgeFilter_VB",		0x00010001,0x00000000
+HKR,,			"EdgeFilter_VT",		0x00010001,0x00000050
+HKR,,			"EdgeFilter_HL",		0x00010001,0x00000050
+HKR,,			"EdgeFilter_HR",		0x00010001,0x00000050
+HKLM,%SetApoint%,	"AdvancedScrollFunc",		0x00010001,0x00000099
+HKLM,%SetApoint%,	"AdvancedZoomFunc",		0x00010001,0x00000011
+HKLM,%SetApoint%,	"CirqueLogicEnable",		0x00010001,0x00000000
+HKLM,%SetApoint%,	"TouchSensitivity",		0x00010001,0x0000000A
+HKLM,%SetTapping%,	"TouchSensitivity",		0x00010001,0x0000000A
+HKLM,%SetGesture%,	"PanSetting",			0x00010001,0x00000007
+HKLM,%SetParamsDef%,	"TouchSensitivity",		0x00010001,0x0000000A
+HKLM,%SetParamsDef%,	"PanSetting",			0x00010001,0x00000007
+HKR,%SetT3Std%,		"PinnacleAG_Use_AUX_as_SP_Button",0x00010001,0x00000001
+HKR,%SetT3Std%,		"fw_version",  			0x00010001,0x0008002F
+HKR,%SetT3Std%,		"RawModeFilterLevel",  		0x00010001,0xFFFF6514
+HKR,%SetT3Std%,		"CursorSpeedScale_GP",  	0x00010001,0x00000064
+HKR,%SetT3Std%,		"PinnacleAG_Z_thresh_cnst",	0x00010001,0x0000000F
+HKR,%SetT3Std%,		"PinnacleAG_Z_thresh_coef",	0x00010001,0x00000004
+HKR,%SetT3Std%,		"PinnacleAG_enable_filter",	0x00010001,0x00000000
+HKR,%SetT3Std%,		"PinnacleAG_Y_NERD_thresh",	0x00010001,0x00040003
+HKR,%SetT3Std%,		"SendF5CmdInstFFCmd",		0x00010001,0x00000000
+HKR,%SetT3Std%,		"HorizSensitivity",		0x00010001,0x00000020
+HKR,%SetT3Std%,		"VertSensitivity",		0x00010001,0x00000020
+HKR,%SetT3Std%,		"MT_CountOnTrack",		0x00010001,0x00000001
+HKR,%SetT3Std%,		"MT_MinMovementPost",		0x00010001,0x004B0064
+HKR,%SetT3Std%,		"MT_Pan_thresh_vh",		0x00010001,0x0000001E
+HKR,%SetT3Std%,		"MT_ReleaseCount",		0x00010001,0x00000001
+HKR,%SetT3Std%,		"MT_Pan_init_move",		0x00010001,0x003C0050
+HKR,%SetT3Std%,		"MT_Pan_size_change",		0x00010001,0x001A001A
+HKR,%SetT3Std%,		"MT_Pinch_resolution",		0x00010001,0x00000004
+HKR,%SetT3Std%,		"MT_Pivot_ignored",		0x00010001,0x0000000F
+HKR,%SetT3Std%,		"MT_Twist_ignored",		0x00010001,0x0000000F
+HKR,%SetT3Std%,		"MT_3Flick_thresh_boxmove",	0x00010001,0x00000020
+HKR,%SetT3Std%,		"ExtendedLogicFlag",		0x00010001,0x3DFFFFDD
+HKR,%SetT3Std%,		"PinnacleAG_comp_flags",	0x00010001,0x0000009E
+HKR,%SetT3Std%,		"BorderRingSize_TL",		0x00010001,0x00230023
+HKR,%SetT3Std%,		"BorderRingSize_BR",		0x00010001,0x00230023
+HKR,%SetT3Std%,		"EdgeAction_Angle_Top",		0x00010001,0x00000032
+HKR,%SetT3Std%,		"EdgeAction_Angle_Left",	0x00010001,0x00000032
+HKR,%SetT3Std%,		"EdgeAction_Angle_Right",	0x00010001,0x00000032
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Top",		0x00010001,0x00000028
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Left",	0x00010001,0x00000023
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x00000028
+HKR,%SetT3Std%,		"EdgeAction_Distance_Horiz",	0x00010001,0x0000001E
+HKR,%SetT3Std%,		"EdgeAction_Distance_Vert",	0x00010001,0x00000014
+HKR,%SetT3Std%,		"MT_2tap_num_required",		0x00010001,0x00000001
+HKR,%SetT3Std%,		"MT_Palm_onlyLFB",		0x00010001,0x00000001
+HKR,%SetT3Std%,		"EdgeAction_Enable_Timer",	0x00010001,0x00000001
+HKR,%SetT3Std%,		"EdgeAction_Timer_Timeout",	0x00010001,0x000007D0
+HKR,%SetT3Std%,  	"EdgeAction_Timer_Distance",    0x00010001,0x000000FA
+HKR,%SetT3Std%,		"EdgeAction_Timer_Top",		0x00010001,0x00000080
+HKR,%SetT3Std%,		"EdgeAction_Timer_Bottom",	0x00010001,0x00000080
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000080
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000080
+
+[MouFilter_Inst_Dell_E5_Default.AddReg]
+HKLM,%SetOther%,	"ShowBalloonTPStatus",		0x00010001,0x00010014
+HKLM,%SetOther%,	"ShowZigZag",			0x00010001,0x00000001
+HKR,%SetT3Std%,		"ZigZag_enable",		0x00010001,0x00000001
+
+[MouFilter_Inst_Dell_E6_Default.AddReg]
+HKLM,%SetGesture%,	"4FlickSupport",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"4FlickShow",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"4FlickHorFunc",		0x00010001,0x00100011
+HKLM,%SetGesture%,	"4FlickVerFunc",		0x00010001,0x000C0008
+HKLM,%SetGesture%,	"4FlickVerCustom",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"Enable4Flick",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"Enable4Flick",			0x00010001,0x00000000
+HKLM,%SetGesture%,	"4PressSupport",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"4PressShow",			0x00010001,0x00000003
+HKLM,%SetGesture%,	"4PressFunc",			0x00010001,0x0000000B
+HKLM,%SetParamsDef%,	"4PressFunc",			0x00010001,0x0000000B
+HKLM,%SetGesture%,	"4PressSetting",		0x00010001,0x000000FF
+HKLM,%SetGesture%,	"Enable4Press",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"Enable4Press",			0x00010001,0x00000000
+HKLM,%SetApoint%,	"HideScrollandZoom", 		0x00010001,0x00000001
+HKLM,%SetTapping%,	"TapSettings",			0x00010001,0x00000008
+HKLM,%SetParamsDef%,	"TapSettings",			0x00010001,0x00000008
+HKLM,%SetGesture%,	"Enable2Flick",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"Enable2Flick",			0x00010001,0x00000000
+HKLM,%SetGesture%,	"3PressFunc",			0x00010001,0x0000000B
+HKLM,%SetParamsDef%,	"3PressFunc",			0x00010001,0x0000000B
+HKLM,%SetApoint%,	"UseOriginalReverseScrollDirection",0x00010001,0x00000000
+HKLM,%SetOther%,	"EnableZigZag",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"EnableZigZag",			0x00010001,0x00000000
+HKR,%SetT4Std%,		"ZigZag_enable",		0x00010001,0x00000001
+
+[T4_Standard.AddReg]
+HKLM,%SetApoint%,	"TouchSensitivity",		0x00010001,0x00000008
+HKLM,%SetTapping%,	"TouchSensitivity",		0x00010001,0x00000008
+HKLM,%SetParamsDef%,	"TouchSensitivity",		0x00010001,0x00000008
+HKR,,			"EdgeFilter_Setting",		0x00010001,0x00000000
+HKR,,			"EdgeFilter_VT",		0x00010001,0x00000064
+HKR,,			"EdgeFilter_HL",		0x00010001,0x00000096
+HKR,,			"EdgeFilter_HR",		0x00010001,0x00000096
+HKR,,			"Enable_InitStickOfRushless",	0x00010001,0x00000001
+HKR,,			"MuShortening",			0x00010001,0x00000001
+HKR,%SetT4Std%,		"fw_version",  			0x00010001,0x00BA00FF
+HKR,%SetT4Std%,		"BtnDragPersist_Dist",		0x00010001,0xFFFFFFFF
+HKR,%SetT4Std%,		"BtnDragPersist_Dist_um",	0x00010001,0xFFFFFFFF
+HKR,%SetT4Std%,		"Btl_Button_Zone",		0x00010001,0x00000000
+HKR,%SetT4Std%,		"MiscompensationCheck_Enable",  0x00010001,0x00000040
+HKR,%SetT4Std%,		"InhibitBtnTap_Setting",	0x00010001,0x00200000
+HKR,%SetT4Std%,		"PinnacleAG_Z_thresh_cnst",	0x00010001,0x00000012
+HKR,%SetT4Std%,		"PinnacleAG_Z_thresh_coef",	0x00010001,0x00000004
+HKR,%SetT4Std%,		"PinnacleAG_Use_AUX_as_SP_Button",0x00010001,0x00000001
+HKR,%SetT4Std%,		"SendF5CmdInstFFCmd",		0x00010001,0x00000000
+HKR,%SetT4Std%,		"HorizSensitivity",		0x00010001,0x00000020
+HKR,%SetT4Std%,		"VertSensitivity",		0x00010001,0x00000020
+HKR,%SetT4Std%,		"ExtendedLogicFlag",		0x00010001,0x4DFFFFDF
+HKR,%SetT4Std%,		"MT_Pivot_enough_cnt",		0x00010001,0x00000001
+HKR,%SetT4Std%,		"MT_2tap_distance",  		0x00010001,0x00000800
+HKR,%SetT4Std%,		"MT_Pinch_init_move_mm",	0x00010001,0x00000010
+HKR,%SetT4Std%,		"MT_Pinch_resol_mm",		0x00010001,0x00000006
+HKR,%SetT4Std%,		"Enable_LidOpenComp",  		0x00010001,0x00000000
+HKR,%SetT4Std%,		"ConstPointerSpeed",  		0x00010001,0x000019F9
+HKR,%SetT4Std%,		"RawModeFilterLevel",  		0x00010001,0xFFFFFF14
+HKR,%SetT4Std%,		"MT_3Flick_movement",  		0x00010001,0x00C800C8
+HKR,%SetT4Std%,		"MT_3Flick_thresh_boxmove",  	0x00010001,0x00000020
+HKR,%SetT4Std%,		"MT_4Flick_movement",  		0x00010001,0x00640064
+HKR,%SetT4Std%,		"MT_4Flick_thresh_boxmove",  	0x00010001,0x00000020
+
+HKR,%SetT4Std%,		"EdgeAction_Enable_Timer",  	0x00010001,0x00000001
+HKR,%SetT4Std%,		"EdgeAction_Timer_Left",  	0x00010001,0x00000050
+HKR,%SetT4Std%,		"EdgeAction_Timer_Right",  	0x00010001,0x00000050
+HKR,%SetT4Std%,		"EdgeAction_Timer_Timeout",  	0x00010001,0x000007D0
+
+HKR,%SetT4Std%,		"EdgeAction_AreaW_Left",	0x00010001,0x0000001E
+HKR,%SetT4Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x0000001E
+HKR,%SetT4Std%,		"EdgeAction_AreaW_Top",		0x00010001,0x00000028
+HKR,%SetT4Std%,		"EdgeAction_Angle_Left",	0x00010001,0x00000032
+HKR,%SetT4Std%,		"EdgeAction_Angle_Right",	0x00010001,0x00000032
+HKR,%SetT4Std%,		"EdgeAction_Angle_Top",		0x00010001,0x00000032
+
+HKLM,%SetGesture%, 	"PinchSetting",			0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"PinchSetting",			0x00010001,0x00000000
+HKLM,%SetGesture%, 	"InertialScr_V2_Speed_V",	0x00010001,0x00020001
+HKLM,%SetGesture%, 	"InertialScr_V2_Speed_H",	0x00010001,0x00020001
+HKLM,%SetGesture%,	"2FlickThreshold",		0x00010001,0x00000002
+
+[MouFilter_Inst_W8.AddReg]
+HKLM,%SetApoint%,	"CursorChangeType", 		0x00010001,0x00300000
+HKLM,%SetOther%,	"ShowOSDStatus",		0x00010001,0x00000000
+HKLM,%SetOther%,	"ShowBalloonTPStatus",		0x00010001,0x00000000
+HKLM,%SetUSBMouse%,	"ShowBalloon",			0x00010001,0x00000000
+HKLM,%SetButton%,	"EnableWheel",			0x00010001,0x00000020
+HKLM,%SetParamsDef%,	"EnableWheel",			0x00010001,0x00000020
+HKLM,%SetGesture%,	"EnablePan",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnablePan",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"EnablePinch",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnablePinch",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"Enable2Flick",			0x00010001,0x00000003
+HKLM,%SetParamsDef%,	"Enable2Flick",			0x00010001,0x00000003
+HKLM,%SetApoint%,	"InvertScrollShow",		0x00010001,0x00000001
+HKLM,%SetApoint%,	"InvertScrollFlag",		0x00010001,0x00000003
+HKLM,%SetParamsDef%,	"InvertScrollFlag",		0x00010001,0x00000003
+HKLM,%SetGesture%, 	"2TapSupport", 			0x00010001,0x00000001
+HKLM,%SetGesture%, 	"Enable2Tap", 			0x00010001,0x00000001
+HKLM,%SetParamsDef%, 	"Enable2Tap", 			0x00010001,0x00000001
+HKLM,%SetGesture%, 	"2TapFunc", 			0x00010001,0x0000000D
+HKLM,%SetParamsDef%, 	"2TapFunc", 			0x00010001,0x0000000D
+HKLM,%SetGesture%,	"EnableMultiGesture",		0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnableMultiGesture",		0x00010001,0x00000001
+HKLM,%SetButton%,	"EnableWheel",			0x00010001,0x00000020
+HKLM,%SetParamsDef%,	"EnableWheel",			0x00010001,0x00000020
+HKLM,%SetGesture%,	"EnablePan",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnablePan",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"Enable2Flick",			0x00010001,0x00000003
+HKLM,%SetParamsDef%,	"Enable2Flick",			0x00010001,0x00000003
+HKLM,%SetGesture%,	"EnablePinch",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnablePinch",			0x00010001,0x00000001
+HKLM,%SetApoint%,	"TouchPadOnOffOption",		0x00010001,0x00000000
+HKLM,%SetGesture%,	"AdjScroll_Metro",		0x00010001,0x00000001
+HKLM,%SetGesture%,	"AdjScrollSpeed_Photos",	0x00010001,0x00000003
+
+[MouFilter_Inst_W81.AddReg]
+HKLM,%SetEdgeAction%,	"EdgeActionShow",		0x00010001,0x0000000C
+HKLM,%SetEdgeAction%,	"EnableEdgeAction_U",		0x00010001,0x00000000
+HKLM,%SetParamsDef%,	"EnableEdgeAction_U",		0x00010001,0x00000000
+
+;-------------- Custom Settings
+
+[MouFilter_Inst_Dell_E2_00.AddReg]
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00270042
+HKR,,			"MT_Cover_num_nodes",		0x00010001,0x00040006
+HKR,,			"PinnacleAG_Z_thresh_cnst",	0x00010001,0x008A002C
+HKR,,			"PinnacleAG_Z_thresh_coef",	0x00010001,0x008A0009
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_cnst",	0x00010001,0x009D0029
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_coef",	0x00010001,0x009D0004
+
+HKLM,%SetParamsDef%,	"TouchSensitivity_DLL040A_LowZ",	0x00010001,0x00000008
+HKR,%SetAGPlus%,	"Check_HCO_X13",			0x00010001,0x00000001
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_cnst_DLL040A_LowZ",0x00010001,0x009D001E
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_coef_DLL040A_LowZ",0x00010001,0x009D0002
+
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Top",		0x00010001,0x00000046
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Left",	0x00010001,0x00000046
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Right",	0x00010001,0x00000046
+
+[MouFilter_Inst_Dell_E2_01.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x002D0050
+HKR,,			"PinnacleAG_Z_thresh_cnst",	0x00010001,0x008A002C
+HKR,,			"PinnacleAG_Z_thresh_coef",	0x00010001,0x008A0009
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_cnst",	0x00010001,0x009D0029
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_coef",	0x00010001,0x009D0004
+
+HKLM,%SetParamsDef%,	"TouchSensitivity_DLL040A_LowZ",	0x00010001,0x00000008
+HKR,%SetAGPlus%,	"Check_HCO_X13",			0x00010001,0x00000001
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_cnst_DLL040A_LowZ",0x00010001,0x009D001E
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_coef_DLL040A_LowZ",0x00010001,0x009D0002
+
+[MouFilter_Inst_Dell_E2_02.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00270042
+HKR,,			"MT_Cover_num_nodes",		0x00010001,0x00040006
+HKR,,			"EnoughZCntForTap",		0x00010001,0x00000003
+HKR,,			"PinnacleAG_Z_thresh_cnst",	0x00010001,0x008A002C
+HKR,,			"PinnacleAG_Z_thresh_coef",	0x00010001,0x008A0009
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_cnst",	0x00010001,0x009D0029
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_coef",	0x00010001,0x009D0004
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Top",		0x00010001,0x00000046
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Left",	0x00010001,0x00000046
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Right",	0x00010001,0x00000046
+
+[MouFilter_Inst_Dell_E2_03.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00260046
+HKLM,%SetGesture%,	"EnablePan",			0x00010001,0x00000001
+HKLM,%SetGesture%,	"Enable2Flick",			0x00010001,0x00000003
+HKLM,%SetGesture%,	"EnableMultiGesture",		0x00010001,0x00000001
+HKLM,%SetButton%,	"EnableWheel",			0x00010001,0x00000020
+HKLM,%SetParamsDef%,	"EnablePan",			0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"Enable2Flick",			0x00010001,0x00000003
+HKLM,%SetParamsDef%,	"EnableMultiGesture",		0x00010001,0x00000001
+HKLM,%SetParamsDef%,	"EnableWheel",			0x00010001,0x00000020
+HKR,,			"MT_Cover_num_nodes",		0x00010001,0x00040006
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_cnst",	0x00010001,0x009D0029
+HKR,%SetAGPlus%,	"PinnacleAG_Z_thresh_coef",	0x00010001,0x009D0004
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Top",		0x00010001,0x00000046
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Left",	0x00010001,0x00000046
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Right",	0x00010001,0x00000046
+
+[MouFilter_Inst_Dell_E3_01.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x002D0050
+
+[MouFilter_Inst_Dell_E3_02.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00280050
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Right",	0x00010001,0x0000002D
+
+[MouFilter_Inst_Dell_E3_03.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00280050
+HKLM,%SetApoint%,	"OnOffHotkeyInfo",		0x00010001,0x00010076
+HKR,%SetAGPlus%,	"EdgeAction_AreaW_Right",	0x00010001,0x0000002D
+
+[MouFilter_Inst_Dell_E4_01.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x002D0050
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000072
+
+[MouFilter_Inst_Dell_E4_02.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00280050
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x0000002D
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000072
+
+[MouFilter_Inst_Dell_E4_03.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x002C005A
+
+[MouFilter_Inst_Dell_E5_01.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg] [MouFilter_Inst_Dell_E5_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x002A004D
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x0000002A
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000072
+
+[MouFilter_Inst_Dell_E5_02.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg] [MouFilter_Inst_Dell_E5_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x002C005A
+
+[MouFilter_Inst_Dell_E5_03.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg] [MouFilter_Inst_Dell_E5_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x002D0050
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x0000002D
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000072
+
+[MouFilter_Inst_Dell_E5_04.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg] [MouFilter_Inst_Dell_E5_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00290051
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x0000002D
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000072
+
+[MouFilter_Inst_Dell_E5_05.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [TP_OnOff_HotKey.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg] [MouFilter_Inst_Dell_E5_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x002E0050
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x0000002D
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000072
+
+[MouFilter_Inst_Dell_E5_06.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg] [MouFilter_Inst_Dell_E5_Default.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00330053
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x0000002D
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Top",		0x00010001,0x0000003C
+HKR,%SetT3Std%,		"EdgeAction_Timer_Top",		0x00010001,0x00000080
+
+[MouFilter_Inst_Dell_E6_01.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg] [MouFilter_Inst_Dell_E5_Default.AddReg] [MouFilter_Inst_Dell_E6_Default.AddReg] [T4_Standard.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00350064
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x0000002D
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Top",		0x00010001,0x0000003C
+HKR,%SetT3Std%,		"EdgeAction_Timer_Top",		0x00010001,0x00000083
+HKR,%SetT4Std%,		"EdgeAction_AreaW_Top",		0x00010001,0x0000003C
+HKR,%SetT4Std%,		"EdgeAction_Timer_Top",		0x00010001,0x00000083
+
+[MouFilter_Inst_Dell_E6_02.AddReg] 
+; [PAG1p4_Multi.AddReg] [3F-Gestures_E3_M12.AddReg] [2F-ScrollLock.AddReg] [Advanced_Scroll.AddReg] [MouFilter_Inst_Dell_E3_Default.AddReg] [MouFilter_Inst_Dell_E4_Default.AddReg] [MouFilter_Inst_Dell_E5_Default.AddReg] [MouFilter_Inst_Dell_E6_Default.AddReg] [T4_Standard.AddReg]
+HKR,,			"ActiveAreaLength",		0x00010001,0x00350064
+HKR,%SetT3Std%,		"EdgeAction_AreaW_Right",	0x00010001,0x0000002D
+HKR,%SetT3Std%,		"EdgeAction_Timer_Left",	0x00010001,0x00000072
+HKR,%SetT3Std%,		"EdgeAction_Timer_Right",	0x00010001,0x00000072
+
+
+[DriverInfoAddReg]
+; This section is added to all INFs to add registry entries for Driver Info.
+HKLM,Software\InstalledOptions\%DriverOEM%\%DriverFamily%\%DriverMfgr%\%DriverProduct%,	Description,,		%DriverDescription%
+HKLM,Software\InstalledOptions\%DriverOEM%\%DriverFamily%\%DriverMfgr%\%DriverProduct%,	CurrentVer,,		%DriverOEMVersion%
+HKLM,Software\InstalledOptions\%DriverOEM%\%DriverFamily%\%DriverMfgr%\%DriverProduct%,	Ver_%DriverOEMVersion%,,%DriverVersionID%
+HKLM,Software\InstalledOptions\%DriverOEM%\%DriverFamily%\%DriverMfgr%\%DriverProduct%,	BaseDriverFileName,,	""
+HKLM,Software\InstalledOptions\%DriverOEM%\%DriverFamily%\%DriverMfgr%\%DriverProduct%,	BaseDriverFileVersion,,	""
+
+[MouFilter_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+HKLM,"System\CurrentControlSet\Control\SafeBoot\Minimal\Wdf01000.sys",,,"Driver"
+HKLM,"System\CurrentControlSet\Control\SafeBoot\Network\Wdf01000.sys",,,"Driver"
+
+;-------------- Service information installation
+[filter_Service_Inst]
+DisplayName	= %Filter.SvcDesc%
+ServiceType	= 1			; SERVICE_KERNEL_DRIVER
+StartType	= 3			; SERVICE_DEMAND_START
+ErrorControl	= 0			; SERVICE_ERROR_IGNORE
+LoadOrderGroup	= Pointer Port
+ServiceBinary	= %12%\Apfiltr.sys
+DelReg		= Service_DelReg
+
+[HidMonitor_Service_Inst]
+DisplayName	= %HidMonitor.SvcDisp%
+Description	= %HidMonitor.SvcDesc%
+ServiceType	= 0x00000010		; SERVICE_WIN32_OWN_PROCESS
+StartType	= 2			; SERVICE_AUTO_START
+ErrorControl	= 1			; SERVICE_ERROR_NORMAL
+ServiceBinary	= %16422%\%Apoint_Path%\HidMonitorSvc.exe
+
+[Service_DelReg]
+HKR,Parameters
+
+[MouFilter_Inst_wdfsect]
+KmdfLibraryVersion = 1.9
+
+; Source file information
+; ---------------------------------------------------
+[SourceDisksNames]
+1 = %DiskID%,,,
+
+[SourceDisksFiles]
+Apfiltr.sys	= 1,,
+Vxdif.dll	= 1,,
+Apoint.exe	= 1,,
+ApntEx.exe	= 1,,
+Apoint.dll	= 1,,
+EzAuto.dll	= 1,,
+Elprop.dll	= 1,,
+Uninstap.exe	= 1,,
+ApInst.dll	= 1,,
+hidfind.exe	= 1,,
+ApMsgFwd.exe	= 1,,
+ApMouCpl.dll	= 1,,
+DellTPad.exe	= 1,,
+DellTouchpad.exe= 1,,
+Dell.Framework.Library.dll=1,,
+HidMonitorSvc.exe	= 1,,
+WdfCoinstaller01009.dll	= 1,,
+
+CirScrL.cur	= 1,%Cursor_DataPath%
+CirScrR.cur	= 1,%Cursor_DataPath%
+CirScrU.cur	= 1,%Cursor_DataPath%
+CirScrD.cur	= 1,%Cursor_DataPath%
+PadScrH.cur	= 1,%Cursor_DataPath%
+PadScrV.cur	= 1,%Cursor_DataPath%
+StkScr.cur	= 1,%Cursor_DataPath%
+StkScrH.cur	= 1,%Cursor_DataPath%
+StkScrV.cur	= 1,%Cursor_DataPath%
+Zoom.cur	= 1,%Cursor_DataPath%
+PadScr.cur	= 1,%Cursor_DataPath%
+Rotation.cur	= 1,%Cursor_DataPath%
+InrScr.cur	= 1,%Cursor_DataPath%
+InrScrH.cur	= 1,%Cursor_DataPath%
+InrScrV.cur	= 1,%Cursor_DataPath%
+
+
+; ------------- Localizable strings ------------------------
+[Strings]
+Provider		= "Alps"
+Mfg.Desc		= "Alps Electric"
+
+Filter.SvcDesc		= "Alps Touch Pad Filter Driver for Windows x64"
+Apoint.DeviceDesc 	= "Dell Touchpad"
+DiskID			= "Alps Touch Pad Filter Driver for Windows x64 Setup Disk"
+HidMonitor.SvcDisp	= "Alps HID Monitor Service"		; Service Name
+HidMonitor.SvcDesc	= "Monitor HID device for Alps"		; Service Description
+
+; Installation folders
+Apoint_Path		= "DellTPad"
+Path_Data_Cur		= "DellTPad\Data\Cur"
+Cursor_DataPath		= "Data\\Cur"
+
+; Registry Strings
+SetApoint		= "Software\Alps\Apoint"
+SetSelectDev		= "Software\Alps\Apoint\SelectDevice"
+SetExceptions		= "Software\Alps\Apoint\Exceptions"
+SetParamsDef		= "Software\Alps\Apoint\Params\Default"
+SetButton		= "Software\Alps\Apoint\Button"
+SetOrientation		= "Software\Alps\Apoint\Orientation"
+SetTapping		= "Software\Alps\Apoint\Tapping"
+SetGesture		= "Software\Alps\Apoint\Gesture"
+SetStick		= "Software\Alps\Apoint\Stick"
+SetOther		= "Software\Alps\Apoint\Other"
+SetIM			= "Software\Alps\Apoint\InertialMovement"
+SetUSBMouse		= "Software\Alps\Apoint\USBMouse"
+SetUSBMouseExcept	= "Software\Alps\Apoint\USBMouse\Exceptions"
+SetEdgeAction		= "Software\Alps\Apoint\EdgeAction"
+SetTouchGuard		= "Software\Alps\Apoint\TouchGuard"
+SetAGPlus		= "APF\AGP"
+SetDolphin		= "APF\DOL"
+SetT3Std		= "APF\T3S"
+SetT3Btl		= "APF\T3B"
+SetT4Std		= "APF\T4S"
+SetT4Btl		= "APF\T4B"
+
+RUN			= "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+UNINST			= "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{9F72EF8B-AEC9-4CA5-B483-143980AFD6FD}"
+SHELLPROP		= "Software\Microsoft\Windows\CurrentVersion\Controls Folder\Mouse\shellex\PropertySheetHandlers"
+SHELLPROP_CP		= "Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace"
+
+APOINT_GUID		= "{7F5B8FA4-BEEC-11cf-9BD7-B76592786C03}"
+APMOUCPL_GUID		= "{D0B6E6C2-3485-42E8-A26E-3E3735B240B6}"
+
+ProductVersion		= "Version 8.1206.101.112"
+
+;/* Dell Driver Information History */
+DriverMfgr		= "Alps Electric"
+DriverVersionID		= "8.1206.101.112"
+
+DriverOEM		= "Alps Electric"		; name of the OEM
+DriverFamily		= "Mouse"			; device family (NIC, Storage, Video...)
+DriverProduct		= "Touch Pad"			; Specific Name of device (chipset, for example)
+DriverDescription	= "Alps Pointing-device Driver"	; Description of device (product name, OS or system supported)
+DriverOEMVersion	= "8.1206.101.112"		; OEM-specified version
